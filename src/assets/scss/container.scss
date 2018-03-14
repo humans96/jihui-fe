@@ -1,0 +1,43 @@
+.icon-publishgoods_fill {
+  font-size: 30px;
+}
+
+.is-active{
+  font-size: 18px;
+  .icon-publishgoods_fill {
+    font-size: 40px;
+  }
+}
+.header {
+  img {
+    float: left;
+    height:35px;
+    margin-top: 16px;
+    margin-left: 100px;
+    margin-right: 300px;
+  }
+  .el-menu-demo {
+    float: left;
+    border-bottom: none;
+    @media screen and (min-width:786px){
+      margin-right: 200px;        
+    }
+  }
+}
+.el-footer {
+  div {
+    width: 80%;
+    margin: 0 auto;
+    height: 100px;
+    // background-color: cadetblue;
+    
+    p {
+    position: relative;      
+      top: 40px;
+      text-align: center;
+      span {
+        float: right;
+      }
+    }
+  }
+}

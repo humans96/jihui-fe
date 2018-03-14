@@ -102,6 +102,10 @@ module.exports = {
         to: '.'
       },
       {
+        from: path.join(__dirname, './src/assets/fonts'),
+        to: './fonts'
+      },
+      {
         from: './favicon*',
         to: '.'
       }

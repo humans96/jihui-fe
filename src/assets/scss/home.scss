@@ -1,0 +1,12 @@
+.el-main {
+  background-color: #f5f5f5;
+  padding: 0;
+  .el-carousel {
+    width: 100%;
+    .el-carousel__item {
+      img {
+        width: 100%;
+      }
+    }
+  }
+}
