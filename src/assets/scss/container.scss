@@ -1,14 +1,22 @@
-.icon-publishgoods_fill {
-  font-size: 30px;
-}
-
-.is-active{
-  font-size: 18px;
-  .icon-publishgoods_fill {
-    font-size: 40px;
-  }
-}
 .header {
+  height: auto !important;
+  @media screen and (min-width:1331px){
+    // margin-right: 200px; 
+    display: flex;
+    justify-content: center; 
+  }
+  .is-fixed{
+    top:15px;
+  }  
+  .icon-publishgoods_fill {
+    font-size: 30px;
+  }
+  // .is-active{
+  //   font-size: 18px;
+  //   .icon-publishgoods_fill {
+  //     font-size: 40px;
+  //   }
+  // }
   img {
     float: left;
     height:35px;

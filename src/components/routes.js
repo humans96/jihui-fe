@@ -2,6 +2,10 @@ import Vue from 'vue';
 import VueRouter from 'vue-router';
 
 import Home from 'components/home/home.vue';
+import Product from 'components/product/product.vue';
+import Login from 'components/login/login.vue';
+import Support from 'components/support.vue';
+import About from 'components/about.vue';
 import Container from 'components/default/container.vue';
 Vue.use(VueRouter);
 
@@ -13,9 +17,16 @@ const routes =  [
     },
     children: [
       { path: '/', component: Home },
-      // { path: 'About', name: 'About', component: About },
-      // { path: 'Jupiter', name: 'Jupiter', component: Jupiter },
+      { path: '/product', component: Product },
+      { path: '/support', component: Support },
+      { path: '/about', component: About },
     ]
+  },
+  {
+    path:'/login',
+    components: {
+      body: Login
+    }
   }
 ];
 
