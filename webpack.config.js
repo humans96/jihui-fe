@@ -80,9 +80,9 @@ module.exports = {
     proxy: {
       '/images': 'http://localhost:9110/dist',
       '/fonts': 'http://localhost:9110/dist',
-      '/wechat-spa-api-v1': {
-        pathRewrite: {"^/wechat-spa-api-v1" : ""},
-        target: 'http://192.168.1.57/',
+      '/JH-api': {
+        pathRewrite: {"^/JH-api" : ""},
+        target: 'http://127.0.0.1:3010/JH-api/',
       }
     }
   },

@@ -2,18 +2,34 @@
   <el-container>
     <el-header class="header">
       <!-- <div class="head-containder"> -->
-        <img src="images/logo.png"></img>
+        <div class="logo_container">
+          <a href="/">
+            <img class="logo" src="images/logo.png"></img>
+          </a>        
+        </div>
         <el-menu :default-active="activeIndex" :router='true'  class="el-menu-demo" mode="horizontal" active-text-color="#4e97d9" @select="handleSelect">
           <el-menu-item index="/">首页</el-menu-item>
           <el-menu-item index="/product">产品</el-menu-item>
           <el-menu-item index="/support">支持</el-menu-item>
           <el-menu-item index="/about">关于</el-menu-item>
-          <el-menu-item :index="islogin">个人中心</el-menu-item>
+          <el-submenu index="10" style="width:90px">
+            <template slot="title">
+              <img src="images/carousel1.jpg" style="width:40px;height:40px;border-radius: 50px">
+            </template>
+            <el-menu-item :index="islogin">个人中心</el-menu-item>
+            <el-menu-item index="7">
+                购物车
+                <i class="iconfont icon-publishgoods_fill"></i>
+                &nbsp;             
+                <el-badge :value="2"></el-badge>
+            </el-menu-item>
+          </el-submenu>
+          <!-- <el-menu-item :index="islogin">个人中心</el-menu-item>
           <el-menu-item index="7">
               购物车<el-badge :value="2" class="item">
               <i class="iconfont icon-publishgoods_fill"></i>
             </el-badge>
-          </el-menu-item>
+          </el-menu-item> -->
           
         </el-menu>
       <!-- </div> -->

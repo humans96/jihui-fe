@@ -28,7 +28,10 @@
     margin: 0px auto;
   }
   .ch-container{
-    margin-top: 80px;
+    margin-top: 60px;
+    .ch-item{
+      margin: 20px 0;
+    }
     .ch-item-bg{
       width: 120px;
       height: 120px;
@@ -116,5 +119,35 @@
       }
     }
   }
-  
+}
+
+.readygo{
+  margin-top: 80px;
+  h1{
+    margin: 20px;
+    text-align: center;
+  }
+  h2{
+    font-size: 36px;
+    text-align: center;
+    font-weight: 300;
+    margin-bottom: 18px;
+  }
+  .desc{
+    font-size: 16px;
+    font-weight: 400;
+    text-align: center;
+    width: 80%;
+    color: #5e7387;
+    margin: 0px auto;
+  }
+  img{
+    width: 100%;
+    max-width: 800px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    // width: 80%;
+    margin: 0 auto;
+  }
 }

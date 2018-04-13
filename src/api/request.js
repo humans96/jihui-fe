@@ -1,4 +1,4 @@
-const API_VERSION = 'wechat-spa-api-v1';
+const API_VERSION = 'JH-api';
 
 export const GET = 'GET';
 export const POST = 'POST';

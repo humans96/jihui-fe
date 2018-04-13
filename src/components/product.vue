@@ -6,7 +6,19 @@
     </div>
     <div class="tab-container">
       <el-tabs tab-position="top">
-        <el-tab-pane label="全部">全部</el-tab-pane>
+        <el-tab-pane label="全部">
+          <div class="pro-container">
+            <div class="isss">
+              <el-card>
+                <div class="img-container">
+                  <img src="images/公子小白.jpg">              
+                </div>
+                <p class="pro-name">公子小白</p>
+                <p class="price">￥1880</p>
+              </el-card>
+            </div>
+          </div>
+        </el-tab-pane>
         <el-tab-pane label="智能手表">智能手表</el-tab-pane>
         <el-tab-pane label="智能眼镜">智能眼镜</el-tab-pane>
         <el-tab-pane label="机器人">机器人</el-tab-pane>

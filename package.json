@@ -11,6 +11,7 @@
   "license": "ISC",
   "dependencies": {
     "babel-polyfill": "^6.26.0",
+    "image-cropper.js": "^0.3.1",
     "vue": "^2.3.0"
   },
   "devDependencies": {

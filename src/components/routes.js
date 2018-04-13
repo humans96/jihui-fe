@@ -1,12 +1,13 @@
 import Vue from 'vue';
 import VueRouter from 'vue-router';
 
-import Home from 'components/home/home.vue';
-import Product from 'components/product/product.vue';
-import Login from 'components/login/login.vue';
+import Home from 'components/home.vue';
+import Product from 'components/product.vue';
+import Login from 'components/login.vue';
 import Support from 'components/support.vue';
+import Register from 'components/register.vue';
 import About from 'components/about.vue';
-import Container from 'components/default/container.vue';
+import Container from 'components/container.vue';
 Vue.use(VueRouter);
 
 const routes =  [
@@ -27,11 +28,17 @@ const routes =  [
     components: {
       body: Login
     }
+  },
+  {
+    path:'/register',
+    components: {
+      body: Register
+    }
   }
 ];
 
 export default new VueRouter({
-  mode: 'hash',
+  mode: 'history',
   routes,
   scrollBehavior (to, from, savedPosition) {
     if (savedPosition) {

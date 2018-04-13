@@ -3,6 +3,7 @@
 @import './home.scss';
 @import './product.scss';
 @import './login.scss';
+@import './register.scss';
 
 * {
   margin: 0;
@@ -26,4 +27,7 @@
   font-family: "Lucida Grande", Helvetica, Arial, "Microsoft YaHei", FreeSans, Arimo, "Droid Sans","wenquanyi micro hei","Hiragino Sans GB", "Hiragino Sans GB W3", Roboto, Arial,sans-serif;
   line-height: 1.2;
   color: #37474f;
+}
+.animate-box { 
+  opacity: 0 
 }
