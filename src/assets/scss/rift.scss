@@ -1,0 +1,256 @@
+.rift-des{
+  position: relative;
+  .img-box{
+    background-color: #0d0d0d;
+    img{
+      width: 100%;
+      height: 100%;
+    }
+  }
+  .des-box{
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    top: 30%;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    align-content: flex-end;
+    justify-content: center;
+    p{
+      font-size: 1.2rem;
+      text-align: center;
+      line-height: 24px;
+      color: #fff;
+      padding-bottom: 1.6rem;  
+      font-weight: 400; 
+      .price{
+        color: red;
+      }
+    }
+    .des-title{
+      font-size: 2rem;
+      // padding: 0;
+    }
+  }
+  @media screen and (max-width:648px){
+    .des-title{
+      margin: 0;
+    }
+    p{
+      padding-bottom: 1rem; 
+    }
+    .des-box{
+      top:0;
+    }
+  }
+}
+
+.vr-door{
+  position: relative;
+  background-color: #0d0d0d;
+  .img-box{
+    margin: 0 auto;
+    padding: 0 5rem;
+    img{
+      width: 100%;
+    }
+  }
+  .des-box{
+    position: absolute;
+    padding: 0 5rem;
+    top: 40%;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    .des{
+      width: 50%;
+      // height: 100%;
+      // display: flex;
+      // justify-content: center;
+      // align-items: center;
+      float: left;
+      color: #fff;
+      font-weight: 100;
+      p{
+        padding: 0 2rem;        
+      }
+    }
+    .left-des{
+      p{
+        font-size: 2rem;
+      }
+    }
+    .right-des{
+      p{
+        font-size: 1rem;
+        text-align: right;
+      }
+      img{
+        max-width: 221px;
+      }
+    }
+  }
+  @media screen and (max-width:648px){
+    .right-des{
+      p img{
+        opacity: 0;
+      }
+    }
+  }
+}
+
+.produce{
+  .intro-item{
+    position: relative;
+    .img-box{
+      background-color: #0d0d0d;
+      img{
+        width: 100%;
+      }
+    }
+    .pro-title{
+      width: 100%;
+      position: absolute;
+      top: 40%;
+      text-align: center;
+      color: #fff;
+      font-size: 1.6rem;
+      font-weight: 300;
+    }
+    .tip{
+      position: absolute;
+      color: #fff;
+      .tip-icon{
+        float: left;
+        img{
+          width: 120%;
+          max-width: 96px;
+        }
+      }
+      .des-box{
+        max-width:395px;
+        float: left;
+        padding-left: 2rem;
+        .title{
+          font-weight: 400;
+          font-size: 1rem;
+          padding-bottom: .6rem;
+        }
+        .content{
+          color: #777879;
+        }
+      }
+    }
+  }
+  .item1{
+    .tip{
+      bottom: 15%;
+      right: 5%;
+    }
+  }
+  .item2{
+    .tip{
+      top:15%;
+      left: 5%;
+    }
+  }
+  .item3{
+    .tip{
+      top:40%;
+      left: 40%;
+    }
+  }
+}
+.img-box{
+  font-size: 0;
+}
+.move, .demand{
+  background-color: #0d0d0d;
+  color: #fff;
+  p{
+    text-align: center;
+  }
+  .title{
+    padding-top: 3rem;
+    padding-bottom: 1rem;
+    font-size: 1.4rem;
+    font-weight: 100;
+  }
+  .content{
+    margin: 0 auto;
+    max-width: 740px;
+    font-size: .8rem;
+    color: #777879;
+  }
+  img{
+    width: 100%;
+  }
+  .img-box{
+    width: 80%;
+    max-width: 765px;
+    margin: 0 auto;
+    padding: 4rem 0;
+    img{
+      width: 100%;
+    }
+  }
+}
+
+.package, .buy{
+  position: relative;
+  .img-box{
+    img{
+      width: 100%;
+    }
+  }
+  .des-box{
+    overflow: scroll;
+    position: absolute;
+    top: 20%;
+    right: 4rem;
+    max-width: 325px;
+    color: #fff;
+    p{
+      margin-bottom: 10px;
+    }
+    .head{
+      font-size: 1.4rem;
+      font-weight: 100;
+    }
+    .title{
+      font-size: .8rem;
+      font-weight: 400;
+    }
+    .content{
+      font-size: .5rem;
+      color: #777879;
+      font-weight: 400;
+      line-height: 1rem;
+    }
+  }
+  @media screen and (max-width:600px){
+    .des-box{
+      top: 5%;
+    }
+  }
+}
+.buy{
+  .des-box{
+    top: 40%;
+    p{
+      font-weight: 100;
+      text-align: center;
+    }
+    .name{
+      font-size: 1.6rem;
+    }
+    .price{
+      font-size: 1rem;
+      color: #1574d4;
+    }
+    .el-button{
+      font-weight: 100;
+    }
+  }
+}

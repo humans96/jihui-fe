@@ -4,12 +4,14 @@
 @import './product.scss';
 @import './login.scss';
 @import './register.scss';
+@import './rift.scss';
 
 * {
   margin: 0;
 }
 .is-active{
-  font-size: 18px;
+  font-size: 20px !important;
+  border: none;
   .icon-publishgoods_fill {
     font-size: 40px;
   }
@@ -30,4 +32,20 @@
 }
 .animate-box { 
   opacity: 0 
+}
+html,body{ height: 100%; margin: 0; padding: 0; font-size: 14px;}//注意初始样式必须写在最顶部！！！！如果写在媒体查询底部的话就会覆盖上方的媒体查询（因为是层叠样式表嘛~）
+@media screen and (max-width:320px ) {
+    html{font-size: 8px;}
+}
+@media screen and (min-width:321px) and (max-width:650px ) {
+    html{font-size: 10px;}
+}
+@media screen and (min-width:651px ) and (max-width:1000px )  {
+    html{font-size: 18px;}
+}
+@media screen and (min-width:1001px ) and (max-width:2000px )  {
+    html{font-size: 24px;}
+}
+@media screen and (min-width:2001px ){
+    html{font-size: 30px;}
 }

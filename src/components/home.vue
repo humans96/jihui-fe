@@ -6,7 +6,12 @@
           <img id="carousel-item" src="images/carousel2.jpg">
         </el-carousel-item>
         <el-carousel-item>
-          <img src="images/carousel3.jpg">
+          <!-- <img src="images/carousel4.jpg" style="position: relative;"> -->
+          <div class="carous-des">
+            <p class="des-title">oculus rift</p>
+            <p>走进 VR 世界，体验各种游戏大作 - 现在只需  <span class="price">￥2799</span></p>
+            <p><el-button type="primary" round @click="linkto">详细了解</el-button></p>
+          </div>
         </el-carousel-item>
         <el-carousel-item>
           <img src="images/carousel1.jpg">
@@ -15,7 +20,7 @@
     </div>
   
     <div class="change animate-box">
-      <h2 v-on:click="log">科技改变生活</h2>
+      <h2>科技改变生活</h2>
       <p class="desc">科技正用你无法想象的速度在改变世界，改变人们的生活</p>
       <div class="ch-container">
         <div class="row">
@@ -160,26 +165,17 @@
       };
     },
     methods: {
-      log(){
-        // this.carousel = '900px'
-        console.log(this.carousel);
+      linkto(){
+        this.$router.push('/product/rift');
       }
     },
     watch:{
-      carousel:function (){
-        console.log('111')
-        // return ''+ window.innerWidth/2.1 + 'px';
-      }
     },
     mounted(){
       Init();
       window.onresize = () => {
         this.carousel=''+ window.innerWidth/2.1 + 'px';
       }
-      // console.log(this.carousel);
-      // // this.log();
-      // this.carousel=''+ window.innerWidth/2.1 + 'px';      
-      // console.log(this.carousel);
     }
   }
 

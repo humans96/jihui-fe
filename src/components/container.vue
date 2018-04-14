@@ -9,7 +9,19 @@
         </div>
         <el-menu :default-active="activeIndex" :router='true'  class="el-menu-demo" mode="horizontal" active-text-color="#4e97d9" @select="handleSelect">
           <el-menu-item index="/">首页</el-menu-item>
-          <el-menu-item index="/product">产品</el-menu-item>
+          <!-- <el-menu-item index="/">产品</el-menu-item> -->
+          <el-submenu index="/product">
+            <template slot="title"><a href="/product">产品</a></template>
+            <el-menu-item index="/rift">oculus rift</el-menu-item>
+            <el-menu-item index="/product/lily">lily</el-menu-item>
+            <!-- <el-menu-item index="2-3">选项3</el-menu-item> -->
+            <!-- <el-submenu index="2-4">
+              <template slot="title">选项4</template>
+              <el-menu-item index="2-4-1">选项1</el-menu-item>
+              <el-menu-item index="2-4-2">选项2</el-menu-item>
+              <el-menu-item index="2-4-3">选项3</el-menu-item>
+            </el-submenu> -->
+          </el-submenu>
           <el-menu-item index="/support">支持</el-menu-item>
           <el-menu-item index="/about">关于</el-menu-item>
           <el-submenu index="10" style="width:90px">

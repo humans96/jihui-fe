@@ -3,6 +3,7 @@ import VueRouter from 'vue-router';
 
 import Home from 'components/home.vue';
 import Product from 'components/product.vue';
+import Rift from 'components/product/rift.vue';
 import Login from 'components/login.vue';
 import Support from 'components/support.vue';
 import Register from 'components/register.vue';
@@ -19,6 +20,7 @@ const routes =  [
     children: [
       { path: '/', component: Home },
       { path: '/product', component: Product },
+      { path: '/rift', component: Rift },
       { path: '/support', component: Support },
       { path: '/about', component: About },
     ]

@@ -18,9 +18,9 @@
     <el-row type="flex" class="row-bg" justify="center" style="margin-top:30px">
       <el-col :sm="16" :xs="20">
         <el-steps :active="step" finish-status="success">
-          <el-step title="阅读协议">11111</el-step>
-          <el-step title="填写账号信息">2222</el-step>
-          <el-step title="注册成功">3333</el-step>
+          <el-step title="阅读协议"></el-step>
+          <el-step title="填写账号信息"></el-step>
+          <el-step title="注册成功"></el-step>
         </el-steps>
 
         <div v-show="step == 0">
@@ -166,6 +166,7 @@
       
 <script>
   import Vue from 'vue';
+  import { register, check } from 'api/user.js';
 
   export default {
     name: 'register',
@@ -174,7 +175,17 @@
         if (!value) {
           return callback(new Error('用户名不能为空'));
         }
-        callback();
+        check({
+          name: value
+        }).then(res =>{
+          if(res.data){
+            return callback(new Error('用户名已存在'));            
+          }
+          else {
+            callback();
+          }
+        })
+        // callback();
       };
       var validatepassword = (rule, value, callback) => {
         if (value === '') {
@@ -201,14 +212,21 @@
       let validateEmail = (rule, value, callback) =>{
         var reg = new RegExp("^[a-z0-9]+([._\\-]*[a-z0-9])*@([a-z0-9]+[-a-z0-9]*[a-z0-9]+.){1,63}[a-z0-9]+$"); //正则表达式
         if(value == ''){
-          callback(new Error('邮箱不能为空'));
+          return callback(new Error('邮箱不能为空'));
         }
         if(!reg.test(value)){
-          callback(new Error('邮箱格式错误，请重新填写'));
+          return callback(new Error('邮箱格式错误，请重新填写'));
         }
-        else {
-          callback();
-        }
+        check({
+          email:value
+        }).then(res =>{
+          if(res.data){
+            return callback(new Error('此邮箱已被注册过'));  
+          }
+          else{
+            callback();
+          }
+        })
       }
       return {
         register: {
@@ -232,7 +250,7 @@
             { validator: validateEmail, trigger: 'blur' }
           ]
         },
-        step: 1
+        step: 2
       };
     },
     methods: {
@@ -242,7 +260,18 @@
       submitForm(formName) {
         this.$refs[formName].validate((valid) => {
           if (valid) {
-            console.log(this.register);
+            delete this.register.checkpassword;
+            register(this.register).then(res => {
+              if(res.status == 200){
+                this.step = 2;
+              }
+              else {
+                this.$notify.error({
+                  title: '发生错误',
+                  duration: 1500
+                });
+              }
+            });
           } else {
             console.log('error submit!!');
             return false;
