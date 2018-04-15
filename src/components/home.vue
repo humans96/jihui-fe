@@ -139,12 +139,15 @@
       </div>
     </div>
 
-    <div class="readygo animate-box">
-      <h2>集慧</h2>
-      <p class="desc">你的智能科技中心</p>
-      <h1><el-button type="primary" round>抢先体验</el-button></h1>
+    <div class="readygo">
+      <div class="animate-box">
+        <h2>集慧</h2>
+        <p class="desc">你的智能科技中心</p>
+        <h1><el-button type="primary" round>抢先体验</el-button></h1>
+      </div>
+      
       <div class="col-xl-12">
-        <img src="images/display.jpg">
+        <img data-aos="fade-down" src="images/display.jpg">
       </div>
     </div>
 
@@ -173,6 +176,10 @@
     },
     mounted(){
       Init();
+      AOS.init({
+        offset:200,
+        delay:400,
+      });
       window.onresize = () => {
         this.carousel=''+ window.innerWidth/2.1 + 'px';
       }

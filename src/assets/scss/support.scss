@@ -1,0 +1,35 @@
+.support{
+  .main-desc, .explain{
+    margin: 4rem auto;
+    max-width: 1100px;
+    overflow: scroll;
+    p{
+      font-size: .8rem;
+      font-weight: 400;
+      line-height: 2rem;
+      text-align: center;
+    }
+  }
+  hr{
+    max-width: 1100px;
+    margin:  0 auto;
+    border: 0;
+    border-top: 1px solid #e4eaec;
+  }
+  .explain{
+    margin: 0 auto 2rem;
+    p{
+      text-align: left;
+    }
+    .title{
+      font-weight: bold;
+      padding-top: 2rem;
+    }
+    ul{
+      li{
+        line-height: 2rem;
+        font-size: .7rem;
+      }
+    }
+  }
+}

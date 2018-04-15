@@ -124,11 +124,12 @@
       .tip-icon{
         float: left;
         img{
-          width: 120%;
+          width: 4rem;
           max-width: 96px;
         }
       }
       .des-box{
+        width: 80%;
         max-width:395px;
         float: left;
         padding-left: 2rem;
@@ -197,7 +198,8 @@
   }
 }
 
-.package, .buy{
+.package, .buy, .game{
+  background-color: #0d0d0d;
   position: relative;
   .img-box{
     img{
@@ -235,7 +237,7 @@
     }
   }
 }
-.buy{
+.buy, .game{
   .des-box{
     top: 40%;
     p{
@@ -252,5 +254,54 @@
     .el-button{
       font-weight: 100;
     }
+  }
+}
+.game{
+  .img-box{
+    opacity: .6;
+  }
+  .des-box{
+    top: 0;
+    left: 0;
+    width: 100%;
+    max-width: none;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    align-items: center;
+    .price{
+      color: #fff;
+    }
+  }
+  button{
+    background: none;
+    border: 2px solid #fff;
+    border-radius: 24px;
+    color: #fff;
+    font-size: 1rem;
+    min-width: 3rem;
+    padding: 8px 40px;
+    transition: background .4s;
+    -webkit-transition: background .4s; /* Safari and Chrome */
+  }
+  button:hover{
+    background-color: #fff;
+    cursor: pointer;
+    color: #37474f;
+  }
+}
+#show {
+  -webkit-animation-duration: 3s;
+  animation-duration: 3s;
+}
+.rift{
+  overflow: hidden;
+}
+
+@media screen and (max-width:680px){
+  .tip{
+    top: 30% !important;
+    left: 10% !important;
   }
 }

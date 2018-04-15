@@ -73,6 +73,9 @@
       handleSelect(key, keyPath) {
         console.log(key, keyPath);
       }
+    },
+    mounted(){
+      console.log(this.activeIndex);
     }
 
   }
