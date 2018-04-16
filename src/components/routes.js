@@ -15,7 +15,7 @@ const routes =  [
   {
     path: '/',
     components: {
-      body: Container,
+      container: Container,
     },
     children: [
       { path: '/', component: Home },
@@ -28,19 +28,19 @@ const routes =  [
   {
     path:'/login',
     components: {
-      body: Login
+      container: Login
     }
   },
   {
     path:'/register',
     components: {
-      body: Register
+      container: Register
     }
   }
 ];
 
 export default new VueRouter({
-  mode: 'history',
+  // mode: 'history',
   routes,
   scrollBehavior (to, from, savedPosition) {
     if (savedPosition) {

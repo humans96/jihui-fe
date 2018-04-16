@@ -1,8 +1,8 @@
 <template lang="html">
   <div class="rift">
-    <div class="rift-des">
+    <div class="rift-des animate-box">
       <div class="img-box">
-        <img data-aos="zoom-in-down" data-aos-delay="0" src="images/carousel4.jpg">
+        <img src="images/carousel4.jpg">
       </div>
       <div class="des-box animate-box">
         <p class="des-title">oculus rift</p>
@@ -31,14 +31,14 @@
         <div class="img-box">
           <img data-aos="zoom-in" src="images/produce1.jpg">
         </div>
-        <p class="pro-title" data-aos="zoom-in" data-aos-delay="400">Rift 为你开启崭新体验</p>
+        <p class="pro-title" data-aos="zoom-in" data-aos-delay="600">Rift 为你开启崭新体验</p>
       </div>
 
       <div class="intro-item item1">
         <div class="img-box">
           <img data-aos="fade-left" src="images/produce2.jpg">
         </div>
-        <div class="tip"  data-aos="zoom-out-left" data-aos-delay="400">
+        <div class="tip"  data-aos="zoom-out-left" data-aos-offset="0" data-aos-delay="600">
           <div class="tip-icon">
             <img src="images/produce-icon1.png">
           </div>
@@ -53,7 +53,7 @@
         <div class="img-box">
           <img data-aos="fade-down-right" src="images/produce3.jpg">
         </div>
-        <div class="tip"  data-aos="zoom-out-right" data-aos-delay="400">
+        <div class="tip"  data-aos="zoom-out-right" data-aos-delay="600">
           <div class="tip-icon">
             <img src="images/produce-icon2.png">
           </div>
@@ -68,7 +68,7 @@
           <div class="img-box">
             <img data-aos="flip-up" src="images/produce4.jpg">
           </div>
-          <div class="tip" data-aos="zoom-out" data-aos-delay="400">
+          <div class="tip" data-aos="zoom-out" data-aos-delay="600">
             <div class="tip-icon">
               <img src="images/produce-icon3.png">
             </div>

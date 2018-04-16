@@ -11,7 +11,7 @@
           <el-menu-item index="/">首页</el-menu-item>
           <!-- <el-menu-item index="/">产品</el-menu-item> -->
           <el-submenu index="/product">
-            <template slot="title"><a href="/product">产品</a></template>
+            <template slot="title">产品</template>
             <el-menu-item index="/rift">oculus rift</el-menu-item>
             <el-menu-item index="/product/lily">lily</el-menu-item>
             <!-- <el-menu-item index="2-3">选项3</el-menu-item> -->
@@ -76,6 +76,7 @@
     },
     mounted(){
       console.log(this.activeIndex);
+      console.log(this.$route.path);
     }
 
   }

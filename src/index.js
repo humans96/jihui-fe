@@ -1,4 +1,5 @@
 import 'whatwg-fetch';
+import 'babel-polyfill';
 import app from 'components';
 import window from 'window';
 import 'components/lib/superfish.js';
