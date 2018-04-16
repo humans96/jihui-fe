@@ -1,34 +1,72 @@
 .about{
+  .about-us{
+    .img-box{
+      margin: 0 auto;
+      width: 80%;
+      max-width: 1100px;
+      img{
+        width: 100%;
+        max-width: 1100px;
+      }
+    }
+    hr{
+      width: 80%;
+      max-width: 1100px;
+      margin:  2rem auto 0;
+      border: 0;
+      border-top: 1px solid #e4eaec;
+    }
+    .desc{
+      margin: 0 auto;
+      width: 80%;
+      max-width: 1100px;
+      p{
+        font-size: .8rem;
+        font-weight: 400;
+        line-height: 1.5rem;
+        margin-bottom: 1rem;
+      }
+    }
+  }
   h2{
     margin: 2rem;
     font-size: 36px;
     text-align: center;
     font-weight: 300;
   }
-  .img-box{
-    margin: 0 auto;
-    width: 80%;
-    max-width: 1100px;
-    img{
-      max-width: 1100px;
+  
+  #map{
+    width: 540px;
+    height: 270px;
+  }
+  .contact-us{
+    h2{
+      margin-top: 5rem;
     }
-  }
-  hr{
-    width: 80%;
-    max-width: 1100px;
-    margin:  2rem auto 0;
-    border: 0;
-    border-top: 1px solid #e4eaec;
-  }
-  .desc{
-    margin: 0 auto;
-    width: 80%;
-    max-width: 1100px;
-    p{
-      font-size: .8rem;
+    .desc{
+      font-size: 1rem;
       font-weight: 400;
-      line-height: 1.5rem;
-      margin-bottom: 1rem;
+      padding-bottom: 2rem;
+      text-align: center;
+    }
+    .contact-box{
+      width: 80%;
+      max-width: 1100px;
+      margin: 0 auto;
+      p{
+        width: 70%;
+        font-size: .8rem;
+        font-weight: 300;
+        line-height: 2rem;
+        text-align: left;
+      }
+      .contact{
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-direction: column;
+      }
     }
   }
+  
 }

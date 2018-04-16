@@ -139,3 +139,24 @@
   }
 
 }
+#input{
+  width: 70%;
+}
+#code  
+{  
+  font-family:Arial;  
+  font-style:italic;  
+  font-weight:bold;  
+  border:0;  
+  letter-spacing:2px;  
+  color:blue; 
+  background: -webkit-linear-gradient(left ,#C7C7C7 ,#fff); /* Safari 5.1 - 6.0 */
+  background: -o-linear-gradient(right, #C7C7C7 ,#fff); /* Opera 11.1 - 12.0 */
+  background: -moz-linear-gradient(right,#C7C7C7 ,#fff); /* Firefox 3.6 - 15 */
+  background: linear-gradient(to right, #C7C7C7 ,#fff); /* 标准的语法（必须放在最后） */
+  width: 30%;
+  border-radius: 4px;
+  transition: all .3s;
+  border-bottom-left-radius: 0;
+  border-top-left-radius: 0;
+}  

@@ -1,6 +1,6 @@
 <template lang="html">
   <div>
-    <div class="carousel animate-box">
+    <div class="carousel animate-box animate-one">
       <el-carousel :height="carousel">
         <el-carousel-item>
           <img id="carousel-item" src="images/carousel2.jpg">

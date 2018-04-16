@@ -7,21 +7,23 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="renderer" content="webkit">
     <link rel="stylesheet" href="http://at.alicdn.com/t/font_581740_y34g6g9hi7zm2t9.css">
-    <!-- <script src="http://cdn.bootcss.com/fastclick/1.0.6/fastclick.min.js"></script> -->
     <link rel="stylesheet" href="./style.css">
     <link rel="shortcut icon" href="./favicon.png"/>
     <link rel="bookmark" href="./favicon.png"/>
     <link href="https://cdn.bootcss.com/bootstrap/4.0.0/css/bootstrap-grid.css" rel="stylesheet">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/animate.css@3.5.2/animate.min.css">
     <link href="https://cdn.bootcss.com/aos/2.2.0/aos.css" rel="stylesheet">
-    <!-- <link rel="stylesheet" href="https://cdn.bootcss.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
-    <script src="https://cdn.bootcss.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script> -->
   </head>
   <body>
     <div id="app">
       <router-view name="container"></router-view>
     </div>
     <script type="text/javascript" src="https://cdn.bootcss.com/jquery/2.1.0/jquery.min.js"></script>
+    <script src="https://cdn.bootcss.com/jquery_lazyload/1.9.7/jquery.lazyload.min.js"></script>
+    <script type="text/javascript"> 
+      $("img").lazyload();  
+    </script> 
+    <script type="text/javascript" src="http://api.map.baidu.com/getscript?v=3.0&ak=rT6kUh9LqN6G5HkdKndFR7Gmx31FW84u&services=&t=20180323140107"></script>
     <script type="text/javascript" src="https://cdn.bootcss.com/bluebird/3.4.7/bluebird.min.js"></script>
     <script src="https://cdn.bootcss.com/aos/2.2.0/aos.js"></script>
     <script src="https://cdn.bootcss.com/jquery-cookie/1.4.1/jquery.cookie.min.js"></script>

@@ -1,10 +1,10 @@
 <template lang="html">
   <div class="rift">
-    <div class="rift-des animate-box">
+    <div class="rift-des">
       <div class="img-box">
         <img src="images/carousel4.jpg">
       </div>
-      <div class="des-box animate-box">
+      <div class="des-box animate-box animate-one">
         <p class="des-title">oculus rift</p>
         <p>畅享 VR，仅需 <span class="price">￥2799</span></p>
         <p><el-button type="primary" round @click="addcar">加入购物车</el-button></p>
@@ -29,16 +29,18 @@
     <div class="produce">
       <div class="intro-item">
         <div class="img-box">
-          <img data-aos="zoom-in" src="images/produce1.jpg">
+          <img class="animate-box" src="images/produce1.jpg">
         </div>
-        <p class="pro-title" data-aos="zoom-in" data-aos-delay="600">Rift 为你开启崭新体验</p>
+        <p class="pro-title animate-box">Rift 为你开启崭新体验</p>
       </div>
 
       <div class="intro-item item1">
         <div class="img-box">
-          <img data-aos="fade-left" src="images/produce2.jpg">
+          <img class="animate-zoomIn" src="images/produce2.jpg">
         </div>
-        <div class="tip"  data-aos="zoom-out-left" data-aos-offset="0" data-aos-delay="600">
+        <!-- data-aos="fade-left" -->
+        <!-- data-aos="zoom-out-left" data-aos-offset="0" data-aos-delay="600" -->
+        <div class="tip animate-fadeInRight">
           <div class="tip-icon">
             <img src="images/produce-icon1.png">
           </div>
@@ -51,9 +53,11 @@
 
       <div class="intro-item item2">
         <div class="img-box">
-          <img data-aos="fade-down-right" src="images/produce3.jpg">
+          <img class="animate-rollIn" src="images/produce3.jpg">
         </div>
-        <div class="tip"  data-aos="zoom-out-right" data-aos-delay="600">
+        <!-- data-aos="fade-down-right" -->
+        <!-- data-aos="zoom-out-right" data-aos-delay="600" -->
+        <div class="tip animate-fadeInLeft">
           <div class="tip-icon">
             <img src="images/produce-icon2.png">
           </div>
@@ -66,9 +70,9 @@
 
       <div class="intro-item item3">
           <div class="img-box">
-            <img data-aos="flip-up" src="images/produce4.jpg">
+            <img class="animate-fadeInUp" src="images/produce4.jpg">
           </div>
-          <div class="tip" data-aos="zoom-out" data-aos-delay="600">
+          <div class="tip animate-fadeInUp animate-delay">
             <div class="tip-icon">
               <img src="images/produce-icon3.png">
             </div>
@@ -160,11 +164,11 @@
       }
     },
     mounted(){
-      AOS.refresh();      
-      AOS.init({
-        offset:200,
-        delay:400,
-      });
+      // AOS.refresh();      
+      // AOS.init({
+      //   offset:100,
+      //   delay:400,
+      // });
       Init();
       let n = 1;
       setInterval(function(){

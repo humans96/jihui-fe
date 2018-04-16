@@ -3,8 +3,8 @@
     <el-header class="header">
       <!-- <div class="head-containder"> -->
         <div class="logo_container">
-          <a href="/">
-            <img class="logo" src="images/logo.png"></img>
+          <a href="#/">
+            <img class="logo" src="images/logo.png">
           </a>        
         </div>
         <el-menu :default-active="activeIndex" :router='true'  class="el-menu-demo" mode="horizontal" active-text-color="#4e97d9" @select="handleSelect">
@@ -75,8 +75,8 @@
       }
     },
     mounted(){
-      console.log(this.activeIndex);
-      console.log(this.$route.path);
+      // console.log(this.activeIndex);
+      // console.log(this.$route.path);
     }
 
   }

@@ -1,6 +1,6 @@
 <template lang="html">
   <div class="about">
-    <div class="about-us">
+    <div class="about-us animate-box animate-one">
       <h2>关于我们</h2>
       <div class="img-box">
         <img src="images/about.jpg">
@@ -15,15 +15,28 @@
       </div>
     </div>
 
-    <div>
-      <div id="map"></div>
+    <div class="contact-us">
+      <h2 class="animate-box">联系我们</h2>
+      <p class="desc animate-box">成为我们的合作伙伴，一起感受科技的魅力</p>
+      <div class="row contact-box">
+        <div class="contact col-md-6 col-xs-12 animate-box">
+          <p> <strong>电话&传真:</strong> 15262051386 </p>
+          <p> <strong>电子邮件:</strong> humeng_sq@163.com </p>
+          <p> <strong>公司地址:</strong> 江苏师范大学泉山校区 </p>
+        </div>
+        <div class="map-box  col-md-6 col-xs-12 animate-box">
+          <div id="map"></div>
+        </div>
+      </div>
+      
     </div>
   </div>
 </template>
     
-<!-- <script type="text/javascript" src="http://api.map.baidu.com/api?v=3.0&ak=rT6kUh9LqN6G5HkdKndFR7Gmx31FW84u"></script> -->
+
 <script>
   import Vue from 'vue';
+  import Init from 'components/default/init';
 
   export default {
     name: 'about',
@@ -39,19 +52,20 @@
       
     },
     mounted(){  
-      // setTimeout(function() {
-        // var map = new BMap.Map('map');
-        // var point = new BMap.Point(121.609503, 31.204824);
-        // map.centerAndZoom(point, 15);  // 初始化地图,设置中心点坐标和地图级别
-        // map.setCurrentCity("上海");          // 设置地图显示的城市 此项是必须设置的
-        // map.enableScrollWheelZoom(true);     //开启鼠标滚轮缩放
-        // // map.addControl(new BMap.ScaleControl({anchor: BMAP_ANCHOR_TOP_LEFT}));// 左上角，添加比例尺
-        // map.addControl(new BMap.NavigationControl());  //左上角，添加默认缩放平移控件
+      Init();
+      setTimeout(function() {
+        var map = new BMap.Map('map');
+        var point = new BMap.Point(117.188088,34.203394);
+        map.centerAndZoom(point, 15);  // 初始化地图,设置中心点坐标和地图级别
+        map.setCurrentCity("徐州");          // 设置地图显示的城市 此项是必须设置的
+        map.enableScrollWheelZoom(true);     //开启鼠标滚轮缩放
+        // map.addControl(new BMap.ScaleControl({anchor: BMAP_ANCHOR_TOP_LEFT}));// 左上角，添加比例尺
+        map.addControl(new BMap.NavigationControl());  //左上角，添加默认缩放平移控件
 
-        // var marker = new BMap.Marker(point);
-        // map.addOverlay(marker);              // 将标注添加到地图中
-        // map.centerAndZoom(point, 15);
-      // }, 500);
+        var marker = new BMap.Marker(point);
+        map.addOverlay(marker);              // 将标注添加到地图中
+        map.centerAndZoom(point, 15);
+      }, 500);
     }
   }
 
