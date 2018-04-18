@@ -9,6 +9,7 @@ import Support from 'components/support.vue';
 import Register from 'components/register.vue';
 import About from 'components/about.vue';
 import Container from 'components/container.vue';
+import Ucenter from 'components/user/ucenter.vue';
 Vue.use(VueRouter);
 
 const routes =  [
@@ -23,6 +24,7 @@ const routes =  [
       { path: '/rift', component: Rift },
       { path: '/support', component: Support },
       { path: '/about', component: About },
+      { path: '/ucenter', component: Ucenter}
     ]
   },
   {

@@ -29,14 +29,14 @@
 
   export default {
     name: 'support',
-    data() {
-      return {
-        form:{
-          account:'',
-          password:''
-        }
-      };
-    },
+    // data() {
+    //   // return {
+    //   //   form:{
+    //   //     account:'',
+    //   //     password:''
+    //   //   }
+    //   // };
+    // },
     methods: {
       
     },

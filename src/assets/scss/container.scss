@@ -1,4 +1,15 @@
 .header {
+  .is-active{
+    font-size: 20px !important;
+    border: none;
+    .icon-publishgoods_fill {
+      font-size: 40px;
+    }
+    a,.el-submenu__title{
+      font-size: 20px !important;
+      color: #409EFF !important;
+    }
+  }
   height: auto !important;
   position: relative;
   display: flex;

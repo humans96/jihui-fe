@@ -48,6 +48,7 @@
     </el-header>
     <el-main style="padding:0">
       <router-view></router-view>
+      <!-- <router-view name="ucenter"></router-view> -->
     </el-main>
     <el-footer>
       <div>
@@ -66,7 +67,7 @@
     data() {
       return {
         activeIndex: this.$route.path,
-        islogin:'/login'
+        islogin:'/ucenter'
       };
     },
     methods: {

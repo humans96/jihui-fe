@@ -1,80 +1,83 @@
-.el-tabs__nav-wrap::after{
-  height: 0;
-}
-.el-tabs__active-bar{
-  height: 0;
-}
-.el-tabs__nav{
-  display: flex;
-  justify-content: center;
-  float: none;
-}
-.p-title{
-  width: 100%;
-  height: 100px;
-  background-color: #62a8ea;
-  h1{
-    text-align: center;
-    margin: 0px;
-    line-height: 100px;
-    font-size: 35px;
-    font-weight: 300;
-    text-shadow: none;
-    color: #fff;
+#product{
+  .el-tabs__nav-wrap::after{
+    height: 0;
   }
-}
-.tab-container{
-  margin-top: 20px;
-  .crumb-container{
-    margin-left: 60px;
-    margin-bottom: 30px;
+  .el-tabs__active-bar{
+    height: 0;
   }
-  .el-tab-pane{
-    background-color: #f2f2f2;
+  .el-tabs__nav{
+    display: flex;
+    justify-content: center;
+    float: none;
   }
-}
-
-
-.pro-container{
-  width: 90%;
-  max-width: 1480px;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  flex-wrap:wrap;
-  margin: 0 auto;
-  .isss{
-    .el-card{
-      margin: 20px 10px;
-      width: 270px;
-      .el-card__body{
-        padding: 20px 0;
-        .img-container{
-          width: 100%;
-          text-align: center;
-          img{
-            height: 260px;
-            display: inline-block;
+  .p-title{
+    width: 100%;
+    height: 100px;
+    background-color: #62a8ea;
+    h1{
+      text-align: center;
+      margin: 0px;
+      line-height: 100px;
+      font-size: 35px;
+      font-weight: 300;
+      text-shadow: none;
+      color: #fff;
+    }
+  }
+  .tab-container{
+    margin-top: 20px;
+    .crumb-container{
+      margin-left: 60px;
+      margin-bottom: 30px;
+    }
+    .el-tab-pane{
+      background-color: #f2f2f2;
+    }
+  }
+  
+  
+  .pro-container{
+    width: 90%;
+    max-width: 1480px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap:wrap;
+    margin: 0 auto;
+    .isss{
+      .el-card{
+        margin: 20px 10px;
+        width: 270px;
+        .el-card__body{
+          padding: 20px 0;
+          .img-container{
+            width: 100%;
+            text-align: center;
+            img{
+              height: 260px;
+              display: inline-block;
+            }
           }
-        }
-        p{
-          text-align: center;
-        }
-        .pro-name{
-          font-size: 24px;
-          line-height: 2;
-        }
-        .desc{
-          font-size: 14px;
-          font-weight: 400;
-          color: #929292;
-        }
-        .price {
-          font-size: 20px;
-          color: red;
-          margin-left: -14px;
+          p{
+            text-align: center;
+          }
+          .pro-name{
+            font-size: 24px;
+            line-height: 2;
+          }
+          .desc{
+            font-size: 14px;
+            font-weight: 400;
+            color: #929292;
+          }
+          .price {
+            font-size: 20px;
+            color: red;
+            margin-left: -14px;
+          }
         }
       }
     }
   }
+  
 }

@@ -1,6 +1,6 @@
 <template lang="html">
 
-  <div>
+  <div id="product">
     <div class="p-title">
       <h1>Product</h1>
     </div>

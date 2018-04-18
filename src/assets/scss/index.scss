@@ -7,20 +7,10 @@
 @import './rift.scss';
 @import './support.scss';
 @import './about.scss';
+@import './ucenter.scss';
 
 * {
   margin: 0;
-}
-.is-active{
-  font-size: 20px !important;
-  border: none;
-  .icon-publishgoods_fill {
-    font-size: 40px;
-  }
-  a,.el-submenu__title{
-    font-size: 20px !important;
-    color: #409EFF !important;
-  }
 }
 // .row{
 //   margin: 0 !important;
