@@ -42,6 +42,21 @@
       text-decoration: none;
     }
   }
+  @media screen and (max-width:998px){
+    .header{
+      // display: flex;
+      flex-direction:column;
+    }
+    .logo_container{   
+      // position: relative;
+      // width: 100% !important;
+      opacity: 0;
+    }
+    .el-menu-item{
+      font-size: 18px !important;
+      padding: 0 10px !important;
+    }
+  }
 }
 .el-footer {
   div {
@@ -58,21 +73,5 @@
         float: right;
       }
     }
-  }
-}
-
-@media screen and (max-width:998px){
-  .header{
-    // display: flex;
-    flex-direction:column;
-  }
-  .logo_container{   
-    // position: relative;
-    // width: 100% !important;
-    opacity: 0;
-  }
-  .el-menu-item{
-    font-size: 18px !important;
-    padding: 0 10px !important;
   }
 }
