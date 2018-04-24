@@ -1,0 +1,52 @@
+.cart{
+  background: #f2f2f2;
+  padding: 20px;
+  min-height: 80vh;
+  .cart-body{
+    background-color: #fff;
+    .img-box{
+      float: left;
+      img{
+        width: 80px;      
+      }
+    }
+    .title{
+      float: left;
+      margin-left: 20px;
+      .name{
+        color: #62a8ea;
+        font-size: 16px;
+        line-height: 30px;
+      }
+      .switch{
+        color: #76838f;
+        font-size: 14px;
+      }
+    }
+    .sPrice{
+      color: #76838f;
+      font-size: 16px;
+    }
+    .tPrice{
+      color: #f96868;
+      font-size: 16px
+    }
+  }
+
+  .sum{
+    background-color: #fff;
+    margin-top: 20px;
+    padding: 30px;
+    .total, .buy-btn{
+      p{
+        text-align: right;
+        font-size: 14px;
+        line-height: 40px;
+      }
+      .price{
+        color: #f96868;
+        font-size: 24px;
+      }
+    }
+  }
+}

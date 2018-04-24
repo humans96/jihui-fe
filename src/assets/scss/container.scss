@@ -34,13 +34,17 @@
     border-bottom: none;
     .el-menu-item, .el-submenu__title{
       font-size: 18px;
-      padding: 0 35px;
+      // padding: 0 35px;
     }
     a{
       font-size: 18px;
       color:#909399;
       text-decoration: none;
     }
+  }
+  .log{
+    font-size: 20px;
+    color: #2ED1FF;
   }
   @media screen and (max-width:998px){
     .header{

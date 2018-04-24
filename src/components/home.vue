@@ -1,5 +1,5 @@
 <template lang="html">
-  <div>
+  <div class="home">
     <div class="carousel animate-box animate-one">
       <el-carousel :height="carousel">
         <el-carousel-item>
@@ -105,38 +105,51 @@
     <div class="recommend animate-box">
       <h2>热卖产品</h2>
       <p class="desc">科技，与生活息息相关</p>
-      <div class="row justify-content-center">
-        <div class="col-xl-3 col-xs-12 col-md-4">
-          <el-card>
-            <div class="img-container">
-              <img src="images/公子小白.jpg">              
-            </div>
-            <p class="pro-name">公子小白</p>
-            <p class="desc">智能情感机器人</p>
-            <p class="price">￥1880</p>
-          </el-card>
-        </div>
-        <div class="col-xl-3 col-xs-12 col-md-4">
-          <el-card>
-            <div class="img-container">
-              <img src="images/Apple Watch Sport.jpg">              
-            </div>
-            <p class="pro-name">Apple Watch Sport</p>
-            <p class="desc">苹果智能运动Watch</p>
-            <p class="price">￥2280</p>
-          </el-card>
-        </div>
-        <div class="col-xl-3 col-xs-12 col-md-4"> 
-          <el-card>
-            <div class="img-container">
-              <img src="images/Gear VR.jpg">              
-            </div>
-            <p class="pro-name">Gear VR</p>
-            <p class="desc">高性能VR眼镜</p>
-            <p class="price">￥1280</p>
-          </el-card>
+      <div class="container">
+        <div class="row justify-content-center">
+          <div class="col-xl-3 col-xs-12 col-md-4">
+            <el-card>
+              <div class="img-container">
+                <img src="images/order.png">              
+              </div>
+              <p class="pro-name">Oculus Rift</p>
+              <p class="desc">高性能VR眼镜</p>
+              <p class="price">￥1880</p>
+            </el-card>
+          </div>
+          <div class="col-xl-3 col-xs-12 col-md-4">
+            <el-card>
+              <div class="img-container">
+                <img src="images/公子小白.jpg">              
+              </div>
+              <p class="pro-name">公子小白</p>
+              <p class="desc">智能情感机器人</p>
+              <p class="price">￥1880</p>
+            </el-card>
+          </div>
+          <div class="col-xl-3 col-xs-12 col-md-4">
+            <el-card>
+              <div class="img-container">
+                <img src="images/Apple Watch Sport.jpg">              
+              </div>
+              <p class="pro-name">Apple Watch Sport</p>
+              <p class="desc">苹果智能运动Watch</p>
+              <p class="price">￥2280</p>
+            </el-card>
+          </div>
+          <div class="col-xl-3 col-xs-12 col-md-4"> 
+            <el-card>
+              <div class="img-container">
+                <img src="images/Gear VR.jpg">              
+              </div>
+              <p class="pro-name">Gear VR</p>
+              <p class="desc">高性能VR眼镜</p>
+              <p class="price">￥1280</p>
+            </el-card>
+          </div>
         </div>
       </div>
+     
     </div>
 
     <div class="readygo">
@@ -147,7 +160,7 @@
       </div>
       
       <div class="col-xl-12">
-        <img data-aos="fade-down" src="images/display.jpg">
+        <img class="animate-box" src="images/display.jpg">
       </div>
     </div>
 
@@ -176,10 +189,6 @@
     },
     mounted(){
       Init();
-      AOS.init({
-        offset:200,
-        delay:400,
-      });
       window.onresize = () => {
         this.carousel=''+ window.innerWidth/2.1 + 'px';
       }

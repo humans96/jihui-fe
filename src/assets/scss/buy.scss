@@ -1,0 +1,118 @@
+.buy-body{
+  background: #f2f2f2;
+  padding: 20px;
+  .container{
+    padding: 30px;
+    background-color: #fff;
+    .title{
+      font-size: 18px;
+      height: 80px;
+      line-height: 80px;
+      color: #37474f;
+    }
+    .el-button{
+      margin-left: 30px;
+      margin-bottom: 20px;
+    }
+    .address-container{
+      .address-box{
+        display: inline-block;
+        margin-right: 20px;
+        margin-bottom: 20px;
+        position: relative;
+        padding: 20px;
+        width: 350px;
+        border: 1px solid #E4EAEC;
+        p{
+          line-height: 1.3rem;
+        }
+        .name{
+          font-weight: 400;
+          font-size: 18px;
+        }
+        .phone, .address{
+          color: #76838f;
+          font-size: 14px;
+        }
+        .action{
+          position: absolute;
+          display: none;
+          top: 5px;
+          right: 5px;
+          i{
+            color: #76838f;
+            font-size: 18px;
+          }
+          i:hover{
+            cursor: pointer;
+          }
+        }
+      }
+      .ischose{
+        border: 1px solid red;
+      }
+      .address-box:hover{
+        border: 1px solid red;
+        .action{
+          display: block;
+        }
+      }
+    }
+    .buy-way{
+      margin-left: 30px;
+      font-size: 14px;
+      border: 1px solid #f96868;
+      color: #f96868;
+      padding: 12px 40px;
+    }
+    .distribution{
+      font-size: 14px;
+      margin-left: 30px;
+      color: #f96868;
+    }
+    .buy-way:hover, .distribution:hover{
+      cursor: pointer;
+    }
+    .cart-body{
+      background-color: #fff;
+      .img-box{
+        float: left;
+        img{
+          width: 80px;      
+        }
+      }
+      .title{
+        float: left;
+        margin-left: 20px;
+        .name{
+          color: #62a8ea;
+          font-size: 16px;
+          line-height: 30px;
+        }
+        .switch{
+          color: #76838f;
+          font-size: 14px;
+        }
+      }
+      .sPrice{
+        color: #76838f;
+        font-size: 16px;
+      }
+      .tPrice{
+        color: #f96868;
+        font-size: 16px
+      }
+    }
+  }
+  .total, .buy-btn{
+    p{
+      text-align: right;
+      font-size: 14px;
+      line-height: 40px;
+    }
+    .price{
+      color: #f96868;
+      font-size: 24px;
+    }
+  }
+}

@@ -32,8 +32,8 @@
           <button class="login-submit" id="login-btn" type="submit" @click="onSubmit" style="width:100%">登录</button>
 
           <p class="login-box-link">
-            <a href='/register'>免费注册</a>
-            <a href="/forgetPassword">忘记密码</a>
+            <a href='#/register'>免费注册</a>
+            <a href="#/forgetPassword">忘记密码</a>
           </p>
           <!-- </el-form> -->
         </div>
@@ -45,7 +45,7 @@
 
 <script>
   import Vue from 'vue';
-  import $ from 'jQuery'
+  import $ from 'jQuery';
   import {
     login
   } from 'api/user.js';
@@ -91,7 +91,11 @@
                   title: res.message,
                   duration: 1500
                 });
+                this.createCode(); //刷新验证码  
+                document.getElementById("input").value = ""; //清空文本框  
               } else {
+                $.cookie('token' , res.uuid, { expires: 1 });
+                $.cookie('userName' , res.message.name, { expires: 1 });
                 this.$router.push('/');
               }
             });  
@@ -103,8 +107,8 @@
         this.code = "";
         var codeLength = 4; //验证码的长度  
         var checkCode = document.getElementById("code");
-        var random = new Array(0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 'A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J', 'K', 'L',
-          'M', 'N', 'O', 'P', 'Q', 'R',
+        var random = new Array( 1, 2, 3, 4, 5, 6, 7, 8, 9, 'A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J', 'K', 'L',
+          'M', 'N', 'P', 'Q', 'R',
           'S', 'T', 'U', 'V', 'W', 'X', 'Y', 'Z'); //随机数  
         for (var i = 0; i < codeLength; i++) { //循环操作  
           var index = Math.floor(Math.random() * 36); //取得随机数的索引（0~35）  

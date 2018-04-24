@@ -1,4 +1,5 @@
 const API_VERSION = 'JH-api';
+import $ from 'jQuery';
 
 export const GET = 'GET';
 export const POST = 'POST';
@@ -24,8 +25,12 @@ export default (url, method = GET) => (data, ...appendToUrl) => {
   if((method === GET || method === DELETE) && data) { // convert object to url parameters & append to extra urls
     appendToUrl.push(formatParams(data));
   }
+  if($.cookie('token')){
+    headers.token = $.cookie('token');
+  }
 
   if(window.token) {
+    console.log('111');
     headers.token = window.token;
   }
   return new Promise(f => {

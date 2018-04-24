@@ -33,24 +33,24 @@
         </div>
         <div class="row body-card">
           <div class="col-xs-4 col-sm-4 offset-xs-2 offset-sm-1">
-            <p class="num">1</p>
+            <p class="num" @click="jump('1-2')">{{num.Auditing}}</p>
             <p class="desc">待支付</p>
           </div>
           <div class="col-xs-4 col-sm-2">
-            <p class="num">0</p>
+            <p class="num" @click="jump('1-2')">{{num.Paying}}</p>
             <p class="desc">待收货</p>
           </div>
           <div class="col-xs-12 col-sm-4">
-            <p class="num">0 件</p>
+            <p class="num" onclick="javascript:window.location='#/cart'">{{carNum}} 件</p>
             <p class="desc">购物车</p>
           </div>
         </div>
         <div class="menu-card">
-          <a href="./"><p><i class="iconfont icon-order"></i> 查看所有订单 <span class="linkto"> > </span></p></a>          
-          <a href="./"><p><i class="iconfont icon-bookmark"></i> 我的优惠券 <span class="linkto"> > </span></p> </a>         
-          <a href="./"><p><i class="iconfont icon-map"></i> 收货地址 <span class="linkto"> > </span></p></a>       
-          <a href="./"><p><i class="iconfont icon-payment"></i> 消费明细 <span class="linkto"> > </span></p></a>          
-          <a href="./"><p><i class="iconfont icon-edit"></i> 修改个人信息 <span class="linkto"> > </span></p></a>          
+          <p @click="jump('1-2')"><i class="iconfont icon-order"></i> 查看所有订单 <span class="linkto"> > </span></p>     
+          <p @click="jump('1-3')"><i class="iconfont icon-bookmark"></i> 我的优惠券 <span class="linkto"> > </span></p>      
+          <p @click="jump('1-4')"><i class="iconfont icon-map"></i> 收货地址 <span class="linkto"> > </span></p>      
+          <!-- <p @click="jump('1-2')"><i class="iconfont icon-payment"></i> 消费明细 <span class="linkto"> > </span></p> -->
+          <!-- <p @click="jump('1-5')"><i class="iconfont icon-edit"></i> 修改个人信息 <span class="linkto"> > </span></p>          -->
         </div>
       </div>
 
@@ -266,7 +266,11 @@
 <script>
   import Vue from 'vue';
   import Init from 'components/default/init';
+  import $ from 'jQuery';
   import {city} from 'components/default/city';
+  import {getOrderNum,getCartNum} from 'api/user.js';
+  import {getOrderInfo} from 'api/product.js';
+  
   // import UcenterBord from 'components/user/dashbord.vue';
   
 
@@ -274,10 +278,16 @@
     name: 'ucenter',
     data() {
       return {
-        active: '2',
+        active: '1-1',
         activeName: 'first',
         coupon:'first',
         iscollapse:false,
+        carNum:0,
+        num:{
+          Auditing:0,
+          Paying:0,
+          Finish:0
+        },
         isdialog:{
           addressDialog:false,
           pwdDialog:false,
@@ -314,6 +324,9 @@
       };
     },
     methods: {
+      jump(val){
+        this.active = val;
+      },
       handleSelect(key, keyPath) {
         this.active = key;
       },
@@ -354,6 +367,26 @@
         }
       }
     },
+    created(){
+      getOrderNum({
+        user:$.cookie('userName')
+      }).then(res =>{
+        res.data.forEach(v =>{
+          this.num[v.status]++;
+        })
+        console.log(this.num)
+      });
+      getCartNum({
+        user:$.cookie('userName')
+      }).then(res =>{
+        this.carNum = res.num;
+      });
+      getOrderInfo({
+        user:$.cookie('userName')
+      }).then(res =>{
+        console.log(res.data);
+      })
+    }
     // components: { UcenterBord }
   }
 

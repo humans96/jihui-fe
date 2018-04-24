@@ -5,11 +5,11 @@
         <span>集慧</span>
       </div>
       <div class="user-section">
-        <a href="/login">
+        <a href="#/login">
           <span>登录</span>
         </a>
         |
-        <a href="/register">
+        <a href="#/register">
           <span>注册</span>
         </a>
       </div>
@@ -129,7 +129,7 @@
               </div> -->
             </div>
 
-            <h1><el-button type="primary" @click="agree()">同意协议</el-button> <el-button onclick="javascript:window.location='./login'">返回</el-button></h1>
+            <h1><el-button type="primary" @click="agree()">同意协议</el-button> <el-button onclick="javascript:window.location='#/login'">返回</el-button></h1>
           </div>
         </div>
         
@@ -157,6 +157,9 @@
           </el-form>
         </div>
 
+        <div v-show="step == 2" style="margin-top: 100px">
+          <h1 style="text-align: center">注册成功！请前往登录</h1>
+        </div>
       </el-col>
     </el-row>
       
@@ -185,7 +188,6 @@
             callback();
           }
         })
-        // callback();
       };
       var validatepassword = (rule, value, callback) => {
         if (value === '') {

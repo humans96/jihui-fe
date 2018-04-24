@@ -4,12 +4,16 @@ import VueRouter from 'vue-router';
 import Home from 'components/home.vue';
 import Product from 'components/product.vue';
 import Rift from 'components/product/rift.vue';
+import Demo from 'components/product/demo.vue';
 import Login from 'components/login.vue';
 import Support from 'components/support.vue';
 import Register from 'components/register.vue';
 import About from 'components/about.vue';
 import Container from 'components/container.vue';
 import Ucenter from 'components/user/ucenter.vue';
+import Cart from 'components/cart.vue';
+import Buy from 'components/buy.vue';
+import Order from 'components/order.vue';
 Vue.use(VueRouter);
 
 const routes =  [
@@ -20,11 +24,15 @@ const routes =  [
     },
     children: [
       { path: '/', component: Home },
-      { path: '/product', component: Product },
+      // { path: '/product', component: Product },
       { path: '/rift', component: Rift },
       { path: '/support', component: Support },
       { path: '/about', component: About },
-      { path: '/ucenter', component: Ucenter}
+      { path: '/ucenter', component: Ucenter},
+      { path: '/product/:name', component: Demo },
+      { path: '/cart', component: Cart },
+      { path: '/buy', component: Buy },
+      { path: '/order', component: Order }
     ]
   },
   {
