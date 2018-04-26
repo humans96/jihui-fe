@@ -64,41 +64,23 @@
           <el-col :xs="24" :md="18" class="introduce">
             <el-tabs v-model="activeName" @tab-click="handleClick">
               <el-tab-pane class="details" label="详情" name="first">
-                <ul>
-                  <li v-for="(val, key) in product.detail">
-                    <span v-if="key !='image'">{{key}}:{{val}}</span>
-                  </li>
-                </ul>
-                <hr>
                 <div class="img-box">
-                  <img v-for="val in product.detail.image" :src="'images/products/' + product.name + '/' + val">
+                  <img v-for="val in product.detail" :src="'images/products/' + product.name + '/' + val">
                 </div>
               </el-tab-pane>
-              <el-tab-pane v-if="product.function" class="function" label="功能" name="second">
-                <ul v-if="product.function.li">
-                  <li v-for="val in product.function.li">
-                    {{val}}
-                  </li>
-                </ul>
-                <div class="img-box" v-if="product.function.image">
-                  <img v-for="val in product.function.image" :src="'images/products/' + product.name + '/' + val">
+              <el-tab-pane v-if="product.function.length>0" class="function" label="功能" name="second">
+                <div class="img-box">
+                  <img v-for="val in product.function" :src="'images/products/' + product.name + '/' + val">
                 </div>
               </el-tab-pane>
-              <el-tab-pane label="包装" name="third" v-if="product.packing"  class="packing">
-                <ul v-if="product.packing.li">
-                  <li v-for="val in product.packing.li">
-                    {{val}}
-                  </li>
-                </ul>
-                <div class="img-box" v-if="product.packing.image">
-                  <img v-for="val in product.packing.image" :src="'images/products/' + product.name + '/' + val">
+              <el-tab-pane label="包装" name="third" v-if="product.packing.length>0"  class="packing">
+                <div class="img-box">
+                  <img v-for="val in product.packing" :src="'images/products/' + product.name + '/' + val">
                 </div>
               </el-tab-pane>
-              <!-- <el-tab-pane label="评论（281）" name="fourth">定时任务补偿</el-tab-pane> -->
             </el-tabs>
           </el-col>
           <el-col :md="6" class="recommend hidden-sm-and-down">
-            
           </el-col>
         </el-row>
       </div>
@@ -122,12 +104,12 @@
         num1: 1,
         activeName: 'first',
         product:{
-          detail:{
-            image:''
-          },
+          detail:[],
           switch:{
             image:''
-          }
+          },
+          function:[],
+          packing:[]
         },
         name:this.$route.params.name
       };
@@ -139,12 +121,8 @@
       initial(){
         getProduct({name:this.$route.params.name}).then(res=>{
           res.data[0].detail = eval('(' + res.data[0].detail + ')')
-          if(res.data[0].function != ""){
-            res.data[0].function = eval('(' + res.data[0].function + ')');          
-          }
-          if(res.data[0].packing != ""){
-            res.data[0].packing = eval('(' + res.data[0].packing + ')');          
-          }
+          res.data[0].function = eval('(' + res.data[0].function + ')');          
+          res.data[0].packing = eval('(' + res.data[0].packing + ')');          
           res.data[0].switch = eval('(' + res.data[0].switch + ')');
           Object.keys(res.data[0].switch).map((k,v) =>{
             if(k != 'image'){

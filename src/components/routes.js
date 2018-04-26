@@ -24,7 +24,6 @@ const routes =  [
     },
     children: [
       { path: '/', component: Home },
-      // { path: '/product', component: Product },
       { path: '/rift', component: Rift },
       { path: '/support', component: Support },
       { path: '/about', component: About },

@@ -10,7 +10,7 @@ export const register = request('/register','POST');
 
 export const getCartNum = request('/getCartNum');
 export const getOrderNum = request('/getOrderNum');
-export const getOrder = request('/order');
+// export const getOrder = request('/order');
 export const getCart = request('/cart');
 export const deleteCart = request('/cartDelete');
 
