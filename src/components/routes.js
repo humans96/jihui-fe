@@ -32,7 +32,7 @@ const routes =  [
       { path: '/product/:name', component: Demo },
       { path: '/cart', component: Cart },
       { path: '/buy', component: Buy },
-      { path: '/order', component: Order }
+      { path: '/order/:id', component: Order }
     ]
   },
   {

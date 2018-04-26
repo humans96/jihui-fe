@@ -144,11 +144,11 @@
             <el-form-item label="确认密码" prop="checkpassword" :required="true">
               <el-input type="password" v-model="register.checkpassword" auto-complete="off"></el-input>
             </el-form-item>
-            <el-form-item label="邮箱" prop="email" :required="true">
+            <el-form-item label="手机" prop="phone" :required="true">
+                <el-input v-model.number="register.phone"></el-input>
+              </el-form-item>
+            <el-form-item label="邮箱" prop="email">
               <el-input v-model.number="register.email"></el-input>
-            </el-form-item>
-            <el-form-item label="手机" prop="phone">
-              <el-input v-model.number="register.phone"></el-input>
             </el-form-item>
             <el-form-item>
               <el-button type="primary" @click="submitForm('register')">提交</el-button>
@@ -211,10 +211,34 @@
           callback();
         }
       };
+      let validatePhone = (rule, value, callback) => {
+        if (!value) {
+          return callback(new Error('手机号不能为空'));
+        }
+        var myreg=/^[1][3,4,5,7,8][0-9]{9}$/;  
+        if (!myreg.test(value)) {  
+          return callback(new Error('手机号码格式错误'));
+          this.$confirm('手机号码格式错误，请重新填写！', '提示', {
+            confirmButtonText: '确定',
+            type: 'warning'
+          })
+        } else { 
+          check({
+            phone:value
+          }).then(res =>{
+            if(res.data){
+              return callback(new Error('此手机已被注册过'));  
+            }
+            else{
+              callback();
+            }
+          }) 
+        }  
+      };
       let validateEmail = (rule, value, callback) =>{
         var reg = new RegExp("^[a-z0-9]+([._\\-]*[a-z0-9])*@([a-z0-9]+[-a-z0-9]*[a-z0-9]+.){1,63}[a-z0-9]+$"); //正则表达式
         if(value == ''){
-          return callback(new Error('邮箱不能为空'));
+          return callback();
         }
         if(!reg.test(value)){
           return callback(new Error('邮箱格式错误，请重新填写'));
@@ -250,9 +274,12 @@
           ],
           email:[
             { validator: validateEmail, trigger: 'blur' }
+          ],
+          phone:[
+            { validator: validatePhone, trigger: 'blur' }
           ]
         },
-        step: 2
+        step: 0
       };
     },
     methods: {

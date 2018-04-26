@@ -94,8 +94,8 @@
                 this.createCode(); //刷新验证码  
                 document.getElementById("input").value = ""; //清空文本框  
               } else {
-                $.cookie('token' , res.uuid, { expires: 1 });
-                $.cookie('userName' , res.message.name, { expires: 1 });
+                $.cookie('token' , res.uuid, { expires: .2 });
+                $.cookie('userName' , res.message.name, { expires: .2 });
                 this.$router.push('/');
               }
             });  
@@ -111,7 +111,7 @@
           'M', 'N', 'P', 'Q', 'R',
           'S', 'T', 'U', 'V', 'W', 'X', 'Y', 'Z'); //随机数  
         for (var i = 0; i < codeLength; i++) { //循环操作  
-          var index = Math.floor(Math.random() * 36); //取得随机数的索引（0~35）  
+          var index = Math.floor(Math.random() * 34); //取得随机数的索引（0~35）  
           this.code += random[index]; //根据索引取得随机数加到code上  
         }
         checkCode.value = this.code; //把code值赋给验证码  
@@ -126,7 +126,7 @@
       }
     },
     mounted() {
-      this.createCode();
+      this.createCode();      
     }
   }
 

@@ -147,6 +147,7 @@
   import Vue from 'vue';
   import $ from 'jQuery';
   import Init from 'components/default/init';
+  import {getProduct, addCart, placeOrder} from 'api/product.js';
 
   export default {
     name: 'rift',
@@ -159,8 +160,43 @@
       };
     },
     methods: {
+      getNowFormatDate() {
+        var date = new Date();
+        var seperator1 = "-";
+        var year = date.getFullYear();
+        var month = date.getMonth() + 1;
+        var strDate = date.getDate();
+        var h = date.getHours();
+        var m = date.getMinutes();
+        var s = date.getSeconds();
+        function objec(val){
+          if(val >=1 && val <=9){
+            val = "0" + val;
+          }
+          return val;
+        }
+        month = objec(month);
+        strDate = objec(strDate);
+        h = objec(h);
+        m = objec(m);
+        s = objec(s);
+        var currentdate = year + seperator1 + month + seperator1 + strDate + ' ' + h +':' + m +':' + s ;
+        return currentdate;
+      },
       addcar(){
-        console.log('1');
+        if($.cookie('userName')){
+          addCart({
+            user:$.cookie('userName'),
+            product:8,
+            num:1,
+            time:this.getNowFormatDate(),
+            switch:null
+          })
+          location.reload();
+        }
+        else {
+          this.$router.push('/login');
+        }
       }
     },
     mounted(){

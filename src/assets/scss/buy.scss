@@ -21,7 +21,7 @@
         margin-bottom: 20px;
         position: relative;
         padding: 20px;
-        width: 350px;
+        width: 340px;
         border: 1px solid #E4EAEC;
         p{
           line-height: 1.3rem;
@@ -61,9 +61,12 @@
     .buy-way{
       margin-left: 30px;
       font-size: 14px;
-      border: 1px solid #f96868;
-      color: #f96868;
+      border: 1px solid #E4EAEC;
       padding: 12px 40px;
+    }
+    .buy-way.ischose{
+      border: 1px solid red;
+      color: #f96868;
     }
     .distribution{
       font-size: 14px;

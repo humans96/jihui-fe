@@ -16,6 +16,8 @@ export const deleteCart = request('/cartDelete');
 
 export const getAddress = request('/getAddress');
 export const addAddress = request('/addAddress','POST');
+export const deleteAddress = request('/deleteAddress','POST');
+export const editAddress = request('/editAddress','POST');
 // export const getCookie = key => {
 //   return $.cookie(key);
 // }

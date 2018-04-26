@@ -125,7 +125,7 @@
               id: row.id
             }).then(r =>{
               getCart({
-                uName :$.cookie('userName')
+                user :$.cookie('userName')
               }).then(res =>{
                 res.data.forEach(item =>{
                   item.switch = eval('(' + item.switch + ')');
@@ -159,13 +159,12 @@
       getCart({
         user :$.cookie('userName')
       }).then(res =>{
-        res.data.forEach(item =>{
-          item.switch = eval('(' + item.switch + ')');
-        })
+        if(res.data.length>=1){
+          res.data.forEach(item =>{
+            item.switch = eval('(' + item.switch + ')');
+          })
+        }
         this.cartData = res.data;
-        console.log(this.cartData);
-        // this.multipleSelection = res.data;
-        // console.log(this.multipleSelection);
       })
     },
     mounted() {

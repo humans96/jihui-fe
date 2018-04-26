@@ -4,9 +4,9 @@
     <div class="container">
       <p class="title">收货地址   <el-button type="success"  @click="addAddress">添加地址</el-button></p>
       <div class="address-container">
-        <div class="address-box"  v-for="item in addressList" @click="chose(item,$event)">
+        <div class="address-box"  v-for="(item,index) in addressList" @click="chose(item,$event)">
           <div class="action">
-            <i class="el-icon-edit" @click="editAdress(item)"></i>
+            <i class="el-icon-edit" @click="editAdress(item,index)"></i>
             <i class="el-icon-delete" @click="deleteAdress(item)"></i>
           </div>
           <p class="name">{{item.name}}</p>
@@ -49,9 +49,7 @@
       </el-dialog>
       <hr>
 
-      <p class="title">支付方式 <span class="buy-way">在线支付</span> </p>
-      
-
+      <p class="title">支付方式 <span class="buy-way ischose" @click="buyWay('货到付款',$event)">货到付款</span>  <span class="buy-way" @click="buyWay('在线支付',$event)">在线支付</span></p>
       <hr>
 
       <p class="title">配送方式 <span class="distribution">快递配送（免运费）</span> </p>
@@ -59,7 +57,7 @@
 
       <p class="title">商品</p>
       <div class="cart-body">
-          <el-table
+        <el-table
           :show-header="false"
           ref="multipleTable"
           :data="data"
@@ -128,7 +126,9 @@
   import {
     getAddress,
     deleteCart,
-    addAddress
+    addAddress,
+    deleteAddress, 
+    editAddress
   } from 'api/user.js';
   import {
     placeOrder
@@ -137,14 +137,6 @@
   export default {
     name: 'buy',
     data() {
-      let checkName = (rule, value, callback) => {
-        if (!value) {
-          return callback(new Error('用户名不能为空'));
-        }
-        else {  
-          callback();
-        }  
-      };
       let validatePhone = (rule, value, callback) => {
         if (!value) {
           return callback(new Error('手机号不能为空'));
@@ -165,7 +157,7 @@
         tip:'',
         formLabelWidth:'120px',
         addressDialog:false,
-        addressChose:0,
+        // addressChose:'',
         addressList:[],
         rules: {
           phone:[
@@ -181,6 +173,10 @@
             addressDesc:''
           }
         },
+        payWay:'货到付款',
+        isaddorEdit:'',
+        oldAddress:{},
+        oldIndex:'',
         chosed:'',
         cityList1:city,
         cityList2:'',
@@ -209,42 +205,59 @@
           })
         }
         else {
-           addAddress({
-            name:$.cookie('userName') ,
-            address:this.address
-          }).then(res =>{
-            this.chosed = this.address;
-            getAddress({
-              name:$.cookie('userName')
+          if(this.isaddorEdit == 'add'){
+            addAddress({
+              name:$.cookie('userName') ,
+              address:this.address
             }).then(res =>{
-              if(res.address.length >= 1){
-                res.address = eval(res.address);
-                this.addressList = res.address;
-              }
-              else{
-                this.addressList = [];
-              }
+              this.chosed = this.address;
+              getAddress({
+                name:$.cookie('userName')
+              }).then(res =>{
+                if(res.address.length >= 1){
+                  res.address = eval(res.address);
+                  this.oldAddress =  JSON.parse(JSON.stringify(res.address));
+                  this.addressList = res.address;
+                }
+                else{
+                  this.addressList = [];
+                }
+              })
             })
-          })
+          }
+          else{
+            editAddress({
+              name:$.cookie('userName'),
+              old: this.oldAddress[this.oldIndex],
+              new:this.address
+            }).then(res =>{
+              getAddress({
+                name:$.cookie('userName')
+              }).then(res =>{
+                if(res.address.length >= 1){
+                  res.address = eval(res.address);
+                  this.oldAddress =  JSON.parse(JSON.stringify(res.address));
+                  this.addressList = res.address;
+                }
+                else{
+                  this.addressList = [];
+                }
+              })
+            })
+          }
           this.addressDialog = false;
         }
+      },
+      buyWay(val,el){
+        this.payWay = val;
+        $('.buy-way').removeClass('ischose');
+        $($(el.currentTarget)[0]).addClass('ischose');
+        console.log(this.payWay);
       },
       chose(val,ev){
         this.chosed = val;
         $('.address-box').removeClass('ischose');
-        $($(ev.currentTarget)[0]).addClass('ischose')
-      },
-      addAddress(){
-        this.address = {
-          name: '',
-          phone: '',
-          address:{
-            tier1:'',
-            tier2:'',
-            addressDesc:''
-          }
-        },
-        this.addressDialog = true;
+        $($(ev.currentTarget)[0]).addClass('ischose');
       },
       getNowFormatDate() {
         var date = new Date();
@@ -270,44 +283,83 @@
         return currentdate;
       },
       pay(){
-        this.data.forEach(item =>{
-          deleteCart({
-            id: item.id
+        if(this.chosed){
+          this.data.forEach(item =>{
+            deleteCart({
+              id: item.id
+            })
           })
-        })
-        let product = this.data.map(item =>({
-          id:item.id,
-          name:item.pName,
-          num:item.num,
-          switch:item.switch,
-          image:item.image,
-          price:item.sPrice,
-          stock:item.stock
-        }));
-        placeOrder({
-          user:$.cookie('userName'),
-          product:product,
-          time:this.getNowFormatDate(),
-          status:'Paying',
-          address: this.address,
-          attention:this.tip
-        }).then(res =>{
-          this.$router.push('/ucenter');
-        })         
+          let product = this.data.map(item =>({
+            id:item.id,
+            name:item.pName,
+            num:item.num,
+            switch:item.switch,
+            image:item.image,
+            price:item.sPrice,
+            stock:item.stock
+          }));
+          placeOrder({
+            user:$.cookie('userName'),
+            product:product,
+            time:this.getNowFormatDate(),
+            status:this.payWay == '货到付款'? 'Auditing':'Paying',
+            address: this.address,
+            attention:this.tip,
+            price:this.totalPrice,
+            payWay: this.payWay
+          }).then(res =>{
+            this.$router.push('/ucenter');
+          })    
+        }
+        else {
+          this.$confirm('请选择收货地址！', '提示', {
+            confirmButtonText: '确定',
+            type: 'warning'
+          })
+        } 
       },
-      editAdress(val){
-        this.address = val;
+      addAddress(){
+        this.address = {
+          name: '',
+          phone: '',
+          address:{
+            tier1:'',
+            tier2:'',
+            addressDesc:''
+          }
+        },
+        this.isaddorEdit = 'add';        
         this.addressDialog = true;
       },
-      deleteAdress(){
-        console.log(city);
+      editAdress(val,index){
+        this.isaddorEdit = 'edit';
+        this.address = val;
+        this.oldIndex = index;
+        this.addressDialog = true;
+      },
+      deleteAdress(val){
+        deleteAddress({
+          name:$.cookie('userName') ,
+          address:val
+        }).then(res =>{
+          getAddress({
+            name:$.cookie('userName')
+          }).then(res =>{
+            if(res.address.length >= 1){
+              res.address = eval(res.address);
+              this.oldAddress =  JSON.parse(JSON.stringify(res.address));
+              this.addressList = res.address;
+            }
+            else{
+              this.addressList = [];
+            }
+          })
+        })
       },
       getCity1(v){
-        console.log(v);
         this.cityList2 = city.find(item =>{
           return item.text == v
         });
-        console.log(this.cityList2);
       },
     },
     created() {
@@ -319,34 +371,18 @@
       }).then(res =>{
         if(res.address.length>=1){
           res.address = eval(res.address);
-          console.log(res.address);
-          console.log(typeof(res.address));
+          this.oldAddress =  JSON.parse(JSON.stringify(res.address));
           this.addressList = res.address;
           this.address = this.addressList[0];
-          // console.log(this.addressList);
         }
         else{
+          this.oldAddress =  JSON.parse(JSON.stringify(res.address));
           this.addressList = [];
         }
       })
     },
     mounted() {
       Init();
-      // $('.address-box').click(function(){
-      //   console.log('111111111');
-      // })
-      // $('.address-box').click(function(){
-      //   console.log('111111111');
-      //   let that = $(this);
-      //   $('.address-box').each(function(i,v){
-      //     if(v == that[0]){
-      //       this.addressChose = i;
-      //     }
-      //   })
-      //   $('.address-box').removeClass('ischose');
-      //   $(this).addClass('ischose');
-      //   console.log(this.addressChose);
-      // })
     }
   }
   

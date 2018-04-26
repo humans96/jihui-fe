@@ -1,7 +1,6 @@
 <template lang="html">
   <el-container>
     <el-header class="header">
-      <!-- <div class="head-containder"> -->
         <div class="logo_container">
           <a href="#/">
             <img class="logo" src="images/logo.png">
@@ -9,24 +8,17 @@
         </div>
         <el-menu :default-active="activeIndex" :router='true'  class="el-menu-demo" mode="horizontal" active-text-color="#4e97d9" @select="handleSelect">
           <el-menu-item index="/">首页</el-menu-item>
-          <!-- <el-menu-item index="/">产品</el-menu-item> -->
           <el-submenu index="/product">
             <template slot="title">产品</template>
-            <el-menu-item index="/rift">oculus rift</el-menu-item>
-            <el-menu-item index="/product/Apple Watch Sport">Apple Watch Sport</el-menu-item>
+            <el-menu-item index="/rift">Oculus Rift</el-menu-item>
+            <el-menu-item :index="'/product/'+p.name" :key="p.name" v-for="p in List" v-if="p.name!='Oculus Rift'">{{p.name}}</el-menu-item>
+            <!-- <el-menu-item index="/product/Apple Watch Sport">Apple Watch Sport</el-menu-item>
             <el-menu-item index="/product/Gear VR">Gear VR</el-menu-item>
             <el-menu-item index="/product/ALPHA 2">ALPHA 2</el-menu-item>
             <el-menu-item index="/product/九号平衡车">九号平衡车</el-menu-item>
             <el-menu-item index="/product/Phantom 4">Phantom 4</el-menu-item>
             <el-menu-item index="/product/Pico Neo">Pico Neo</el-menu-item>
-            <el-menu-item index="/product/公子小白">公子小白</el-menu-item>
-            <!-- <el-menu-item index="2-3">选项3</el-menu-item> -->
-            <!-- <el-submenu index="2-4">
-              <template slot="title">选项4</template>
-              <el-menu-item index="2-4-1">选项1</el-menu-item>
-              <el-menu-item index="2-4-2">选项2</el-menu-item>
-              <el-menu-item index="2-4-3">选项3</el-menu-item>
-            </el-submenu> -->
+            <el-menu-item index="/product/公子小白">公子小白</el-menu-item> -->
           </el-submenu>
           <el-menu-item index="/support">支持</el-menu-item>
           <el-menu-item index="/about">关于</el-menu-item>
@@ -45,20 +37,11 @@
           </el-menu-item>
           <el-menu-item v-if="!islogin" index="/login">
              <p class="log">登录</p>
-          </el-menu-item>
-          <!-- <el-menu-item :index="islogin">个人中心</el-menu-item>
-          <el-menu-item index="7">
-              购物车<el-badge :value="2" class="item">
-              <i class="iconfont icon-publishgoods_fill"></i>
-            </el-badge>
-          </el-menu-item> -->
-          
+          </el-menu-item>          
         </el-menu>
-      <!-- </div> -->
     </el-header>
     <el-main style="padding:0">
       <router-view></router-view>
-      <!-- <router-view name="ucenter"></router-view> -->
     </el-main>
     <el-footer>
       <div>
@@ -73,6 +56,7 @@
   import Vue from 'vue';
   import $ from 'jQuery';
   import { getCartNum } from 'api/user.js';
+  import { productList } from 'api/product.js';
 
   export default {
     name: 'container',
@@ -80,7 +64,8 @@
       return {
         activeIndex: this.$route.path,
         islogin:false,
-        carNum:0
+        carNum:0,
+        List:[]
       };
     },
     watch:{
@@ -110,6 +95,10 @@
       }
     },
     created(){
+      productList().then(res =>{
+        console.log('productList',res.data);
+        this.List = res.data;
+      });
       if($.cookie('userName')){
         this.islogin = true;
         getCartNum({
@@ -122,7 +111,6 @@
         this.islogin = false;
       }
     }
-
   }
 
 </script>

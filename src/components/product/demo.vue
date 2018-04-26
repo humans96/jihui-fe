@@ -111,7 +111,7 @@
 <script>
   import Vue from 'vue';
   import mag from 'components/default/show';
-  import {getProduct, addCart} from 'api/product.js';
+  import {getProduct, addCart, placeOrder} from 'api/product.js';
 
   export default {
     name: 'demo',
@@ -219,8 +219,27 @@
         console.log(this.switchRadio);
       },
       order(){
-
-        
+        if($.cookie('userName')){
+          let swi = this.switchRadio.filter(v =>{
+            return v!=''
+          })
+          let proData = [{
+            user:$.cookie('userName'),
+            product:this.product.id,
+            pName:this.product.name,
+            num:this.num1,
+            image:this.product.image,
+            sPrice:this.product.price,
+            stock:this.product.stock,
+            switch:swi,            
+            time:this.getNowFormatDate()
+          }]
+          sessionStorage.setItem("buy",JSON.stringify(proData));
+          this.$router.push('/buy');
+        }
+        else {
+          this.$router.push('/login');
+        } 
       }
     },
     created(){

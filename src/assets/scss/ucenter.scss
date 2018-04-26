@@ -13,7 +13,7 @@
   .u-body{
     width: 900px;
     border-radius: 4px;
-    padding-bottom: 40px;
+    // padding-bottom: 40px;
     margin-left: 40px;
     background-color: #fff;
   }
@@ -108,7 +108,7 @@
       border: 1px solid #f96868;
       border-top: none;
       margin: 0;
-      padding: 20px 0;
+      padding: 20px;
       .img-box{
         float: left;
         img{
@@ -129,7 +129,14 @@
           font-size: 14px;
         }
       }
+    }
+    .order-btn{
+      border: 1px solid #f96868;
+      border-top: none;
+      margin: 0;
+      padding: 20px;
       .butt{
+        min-height: 60px;
         display: flex;
         justify-content: center;
         align-items: center;
@@ -137,6 +144,92 @@
     }
   }
   .index-1-3{
+    .demo {
+      width:410px;
+      margin:0 auto;
+    }
+    .stamp * {
+      padding: 0;
+      margin: 0;
+      list-style:none;
+      font-family:"Microsoft YaHei", 'Source Code Pro', Menlo, Consolas, Monaco, monospace;
+    }
+    .stamp {
+      width: 387px;
+      height: 140px;
+      padding: 0 10px;
+      margin-bottom: 10px;
+      position: relative;
+      overflow: hidden;
+    }
+    .stamp:before {
+      content: '';
+      position: absolute;
+      top:0;
+      bottom:0;
+      left:10px;
+      right:10px;
+      z-index: -1;
+    }
+    .stamp i {
+      position: absolute;
+      left: 20%;
+      top: 45px;
+      height: 190px;
+      width: 390px;
+      background-color: rgba(255, 255, 255, .15);
+      transform: rotate(-30deg);
+    }
+    .stamp .par {
+      float: left;
+      padding: 16px 15px;
+      width: 220px;
+      border-right:2px dashed rgba(255, 255, 255, .3);
+      text-align: left;
+    }
+    .stamp .par p {
+      color:#fff;
+      font-size: 16px;
+      line-height: 21px;
+    }
+    .stamp .par span {
+      font-size: 50px;
+      color:#fff;
+      margin-right: 5px;
+      line-height: 65px;
+    }
+    .stamp .par .sign {
+      font-size: 34px;
+    }
+    .stamp .par sub {
+      position: relative;
+      top:-5px;
+      color:rgba(255, 255, 255, .8);
+    }
+    .stamp .copy {
+      display: inline-block;
+      padding:21px 14px;
+      width:100px;
+      vertical-align: text-bottom;
+      font-size: 30px;
+      color:rgb(255,255,255);
+      text-align: center;
+      line-height: initial;
+    }
+    .stamp .copy p {
+      font-size: 16px;
+      margin-top: 15px;
+    }
+    .stamp01 {
+      background: radial-gradient(rgba(0, 0, 0, 0) 0, rgba(0, 0, 0, 0) 5px, #F39B00 5px);
+      // background-size: 15px 15px;
+      // background-position: 9px 3px;
+      box-sizing: initial;
+    }
+    .stamp01:before {
+      background-color:#F39B00;
+      box-sizing: initial;
+    }
     .el-tab-pane{
       width: 100%;
       min-height: 300px;
@@ -154,12 +247,13 @@
       margin-bottom: 20px;
     }
     .address-box{
-      float: left;
+      // float: left;
+      display: inline-block;
       margin-right: 20px;
       margin-bottom: 20px;
       position: relative;
       padding: 20px;
-      width: 275px;
+      width: 265px;
       border: 1px solid #E4EAEC;
       p{
         line-height: 1.3rem;
