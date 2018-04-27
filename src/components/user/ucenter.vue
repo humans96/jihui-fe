@@ -61,7 +61,7 @@
               <div class="order-info row">
                 <div class="col-sm-8 col-xs-12">
                   <p class="status">{{statusMap[item.status]}}</p>
-                  <p>{{item.time}}  在线支付</p>
+                  <p>{{item.time}}  {{item.payWay}}</p>
                 </div>
                 <div class="col-sm-4 col-xs-12 order-num">
                   <p>订单金额：<span class="price">{{item.price}}元</span></p>
@@ -86,7 +86,7 @@
                   <a :href="'#/order/' + item.id"><el-button type="info" plain>订单详情</el-button></a>
                 </div>
                 <div class="col-xs-12 col-sm-4 col-lg-2 butt" v-if="item.status == 'Paying'">
-                  <el-button type="danger">立即付款</el-button>
+                  <el-button type="danger" @click="ispaying=true">立即付款</el-button>
                 </div>
               </div>
             </div>
@@ -121,7 +121,7 @@
                   <a :href="'#/order/' + item.id"><el-button type="info" plain>订单详情</el-button></a>
                 </div>
                 <div class="col-xs-12 col-sm-4 col-lg-2 butt">
-                  <el-button type="danger">立即付款</el-button>
+                  <el-button type="danger"  @click="ispaying=true">立即付款</el-button>
                 </div>
               </div>
             </div>
@@ -215,6 +215,17 @@
           </el-tab-pane>
         </el-tabs>
       </div>
+      <el-dialog
+        title="扫码支付"
+        :visible.sync="ispaying"
+        width="30%">
+        <p style="text-align: center">这是付款二维码</p>
+        <img style="display: flex" src="images/二维码.png">
+        <span slot="footer" class="dialog-footer">
+          <el-button @click="ispaying = false">取 消</el-button>
+          <el-button type="primary" @click="ispaying = false">确 定</el-button>
+        </span>
+      </el-dialog>
 
       <div class="index-1-3" v-if="active == '1-3'">
         <el-tabs v-model="coupon" @tab-click="handleClick">
@@ -435,6 +446,7 @@
         iscollapse:false,
         carNum:0,
         addressList:[],
+        ispaying:false,
         orderInfo:[],
         num:{
           Auditing:0,
