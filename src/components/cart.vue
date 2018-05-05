@@ -92,13 +92,15 @@
     },
     computed:{
       totalPrice:function(){
+        let sum = 0;
         if(this.multipleSelection.length>1){
-          return  this.multipleSelection.reduce(function(p, c){
-            return (p.num * p.sPrice + c.num * c.sPrice).toFixed(2);
+          this.multipleSelection.forEach(function(item){
+            sum = sum + parseFloat((item.num * item.sPrice).toFixed(2));
           })
+          return sum;
         }
         if(this.multipleSelection.length == 1){
-          return (this.multipleSelection[0].num * this.multipleSelection[0].sPrice).toFixed(2);
+          return parseFloat((this.multipleSelection[0].num * this.multipleSelection[0].sPrice).toFixed(2));
         }
         else {
           return 0;
@@ -112,8 +114,6 @@
       },
       handleChange(value) {
         console.log(this.multipleSelection);
-        // console.log(value.num);
-        // console.log(row);
       },
       handleDelete(index, row) {
         this.$confirm('确定将此商品移出购物车吗?', '提示', {

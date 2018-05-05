@@ -9,8 +9,12 @@
           <!-- <img src="images/carousel4.jpg" style="position: relative;"> -->
           <div class="carous-des">
             <p class="des-title">oculus rift</p>
-            <p>走进 VR 世界，体验各种游戏大作 - 现在只需  <span class="price">￥2799</span></p>
-            <p><el-button type="primary" round @click="linkto">详细了解</el-button></p>
+            <p>走进 VR 世界，体验各种游戏大作 - 现在只需
+              <span class="price">￥2799</span>
+            </p>
+            <p>
+              <el-button type="primary" round @click="linkto">详细了解</el-button>
+            </p>
           </div>
         </el-carousel-item>
         <el-carousel-item>
@@ -18,7 +22,7 @@
         </el-carousel-item>
       </el-carousel>
     </div>
-  
+
     <div class="change animate-box">
       <h2>科技改变生活</h2>
       <p class="desc">科技正用你无法想象的速度在改变世界，改变人们的生活</p>
@@ -73,7 +77,7 @@
             <a href="#/rift">
               <el-card>
                 <div class="img-container">
-                  <img src="images/Oculus Rift.png">              
+                  <img src="images/Oculus Rift.png">
                 </div>
                 <p class="pro-name">Oculus Rift</p>
                 <p class="desc">高性能VR眼镜</p>
@@ -85,7 +89,7 @@
             <a href="#/product/公子小白">
               <el-card>
                 <div class="img-container">
-                  <img src="images/公子小白.jpg">              
+                  <img src="images/公子小白.jpg">
                 </div>
                 <p class="pro-name">公子小白</p>
                 <p class="desc">智能情感机器人</p>
@@ -97,7 +101,7 @@
             <a href="#/product/Apple Watch Sport">
               <el-card>
                 <div class="img-container">
-                  <img src="images/Apple Watch Sport.jpg">              
+                  <img src="images/Apple Watch Sport.jpg">
                 </div>
                 <p class="pro-name">Apple Watch Sport</p>
                 <p class="desc">苹果智能运动Watch</p>
@@ -105,11 +109,11 @@
               </el-card>
             </a>
           </div>
-          <div class="col-xl-3 col-xs-12 col-md-4"> 
+          <div class="col-xl-3 col-xs-12 col-md-4">
             <a href="#/product/Gear VR">
               <el-card>
                 <div class="img-container">
-                  <img src="images/Gear VR.jpg">              
+                  <img src="images/Gear VR.jpg">
                 </div>
                 <p class="pro-name">Gear VR</p>
                 <p class="desc">高性能VR眼镜</p>
@@ -119,14 +123,18 @@
           </div>
         </div>
       </div>
-     
+
     </div>
 
     <div class="readygo">
       <div class="animate-box">
         <h2>集慧</h2>
         <p class="desc">你的智能科技中心</p>
-        <h1><a href="#/rift"><el-button type="primary" round>抢先体验</el-button></a></h1>
+        <h1>
+          <a href="#/rift">
+            <el-button type="primary" round>抢先体验</el-button>
+          </a>
+        </h1>
       </div>
       <div class="col-xl-12">
         <img class="animate-box" src="images/display.jpg">
@@ -134,7 +142,7 @@
     </div>
 
   </div>
-  
+
 </template>
 
 <script>
@@ -145,21 +153,20 @@
     name: 'home',
     data() {
       return {
-        carousel: ''+ window.innerWidth/2.1 + 'px',
+        carousel: '' + window.innerWidth / 2.1 + 'px',
         activeIndex: '1',
       };
     },
     methods: {
-      linkto(){
+      linkto() {
         this.$router.push('/rift');
       },
     },
-    watch:{
-    },
-    mounted(){
+    watch: {},
+    mounted() {
       Init();
       window.onresize = () => {
-        this.carousel=''+ window.innerWidth/2.1 + 'px';
+        this.carousel = '' + window.innerWidth / 2.1 + 'px';
       }
     }
   }
@@ -167,6 +174,6 @@
 </script>
 
 <style lang="scss">
-  
-  
+
+
 </style>

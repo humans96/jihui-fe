@@ -81,11 +81,21 @@
             </el-tabs>
           </el-col>
           <el-col :md="6" class="recommend hidden-sm-and-down">
+            <p style="font-size: 24px;text-align: center;">推荐</p>
+            <a href="#/product/公子小白">
+              <el-card>
+                <div class="img-container">
+                  <img src="images/公子小白.jpg">
+                </div>
+                <p class="pro-name">公子小白</p>
+                <p class="desc">智能情感机器人</p>
+                <p class="price">￥1880</p>
+              </el-card>
+            </a>
           </el-col>
         </el-row>
       </div>
     </div>
-    
   </div>
 
 </template>

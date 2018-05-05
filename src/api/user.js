@@ -7,6 +7,7 @@ import window from 'window';
 export const login = request('/login','POST');
 export const check = request('/check');
 export const register = request('/register','POST');
+export const updatePwd = request('/updatePwd','POST');
 
 export const getCartNum = request('/getCartNum');
 export const getOrderNum = request('/getOrderNum');

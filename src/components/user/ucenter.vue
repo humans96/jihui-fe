@@ -96,7 +96,7 @@
               <div class="order-info row">
                 <div class="col-sm-8 col-xs-12">
                   <p class="status">{{statusMap[item.status]}}</p>
-                  <p>{{item.time}}  在线支付</p>
+                  <p>{{item.time}}  {{item.payWay}}</p>
                 </div>
                 <div class="col-sm-4 col-xs-12 order-num">
                   <p>订单金额：<span class="price">{{item.price}}元</span></p>
@@ -126,12 +126,12 @@
               </div>
             </div>
           </el-tab-pane>
-          <el-tab-pane label="待收货" name="third">
+          <el-tab-pane label="待审核发货" name="third">
             <div class="order-item" v-for="item in orderInfo" v-if="item.status=='Auditing'">
               <div class="order-info row">
                 <div class="col-sm-8 col-xs-12">
                   <p class="status">{{statusMap[item.status]}}</p>
-                  <p>{{item.time}}  在线支付</p>
+                  <p>{{item.time}}  {{item.payWay}}</p>
                 </div>
                 <div class="col-sm-4 col-xs-12 order-num">
                   <p>订单金额：<span class="price">{{item.price}}元</span></p>
@@ -155,12 +155,41 @@
               </div>
             </div>
           </el-tab-pane>
-          <el-tab-pane label="已完成" name="fourth">
+          <el-tab-pane label="待收货" name="fourth">
+            <div class="order-item" v-for="item in orderInfo" v-if="item.status=='Receiving'">
+              <div class="order-info row">
+                <div class="col-sm-8 col-xs-12">
+                  <p class="status">{{statusMap[item.status]}}</p>
+                  <p>{{item.time}}  {{item.payWay}}</p>
+                </div>
+                <div class="col-sm-4 col-xs-12 order-num">
+                  <p>订单金额：<span class="price">{{item.price}}元</span></p>
+                </div>
+              </div>
+              <div class="order-product row" v-for="p in item.product">
+                <div class="col-xs-12">
+                  <div class="img-box">
+                    <a :href="'#/product/' + p.name"><img :src="'images/products/' + p.image"></a>
+                  </div>
+                  <div class="desc">
+                    <p class="name"><a href="#/rift">{{p.name}}</a></p>
+                    <p class="num">{{p.price}}元 x {{p.num}}</p>
+                  </div>
+                </div>
+              </div>
+              <div class="row order-btn justify-content-end">
+                <div class="col-xs-12 col-sm-4 col-lg-2 butt">
+                  <a :href="'#/order/' + item.id"><el-button type="info" plain>订单详情</el-button></a>
+                </div>
+              </div>
+            </div>
+          </el-tab-pane>
+          <el-tab-pane label="已完成" name="fifth">
             <div class="order-item" v-for="item in orderInfo" v-if="item.status=='Finish'">
               <div class="order-info row">
                 <div class="col-sm-8 col-xs-12">
                   <p class="status">{{statusMap[item.status]}}</p>
-                  <p>{{item.time}}  在线支付</p>
+                  <p>{{item.time}}  {{item.payWay}}</p>
                 </div>
                 <div class="col-sm-4 col-xs-12 order-num">
                   <p>订单金额：<span class="price">{{item.price}}元</span></p>
@@ -184,12 +213,12 @@
               </div>
             </div>
           </el-tab-pane>
-          <el-tab-pane label="已取消" name="fifth">
+          <el-tab-pane label="已取消" name="sixth">
             <div class="order-item" v-for="item in orderInfo" v-if="item.status=='Closed'">
               <div class="order-info row">
                 <div class="col-sm-8 col-xs-12">
                   <p class="status">{{statusMap[item.status]}}</p>
-                  <p>{{item.time}}  在线支付</p>
+                  <p>{{item.time}}  {{item.payWay}}</p>
                 </div>
                 <div class="col-sm-4 col-xs-12 order-num">
                   <p>订单金额：<span class="price">{{item.price}}元</span></p>
@@ -354,18 +383,18 @@
       <el-dialog title="修改密码" :visible.sync="isdialog.pwdDialog">
         <el-form :model="dialogForm.pwd">
           <el-form-item label="旧密码" :label-width="formLabelWidth">
-            <el-input v-model="dialogForm.pwd.old" auto-complete="off"></el-input>
+            <el-input v-model="dialogForm.pwd.old" type="password" auto-complete="off"></el-input>
           </el-form-item>
           <el-form-item label="新密码" :label-width="formLabelWidth">
-            <el-input v-model="dialogForm.pwd.new" auto-complete="off"></el-input>
+            <el-input v-model="dialogForm.pwd.new" type="password" auto-complete="off"></el-input>
           </el-form-item>
           <el-form-item label="重复密码" :label-width="formLabelWidth">
-            <el-input v-model="dialogForm.pwd.renew" auto-complete="off"></el-input>
+            <el-input v-model="dialogForm.pwd.renew" type="password" auto-complete="off"></el-input>
           </el-form-item>
         </el-form>
         <div slot="footer" class="dialog-footer">
           <el-button @click="isdialog.pwdDialog = false">取 消</el-button>
-          <el-button type="primary" @click="isdialog.pwdDialog = false">确 定</el-button>
+          <el-button type="primary" @click="eidtPwd">确 定</el-button>
         </div>
       </el-dialog>
 
@@ -410,11 +439,12 @@
   import Init from 'components/default/init';
   import $ from 'jQuery';
   import {city} from 'components/default/city';
-  import {getOrderNum,getCartNum,getAddress,addAddress,deleteAddress, editAddress} from 'api/user.js';
+  import {getOrderNum,getCartNum,getAddress,addAddress,deleteAddress, editAddress, updatePwd} from 'api/user.js';
   import {getOrderInfo, cancelOrder} from 'api/product.js';
   
   const statusMap = {
-    'Auditing':'待收货',
+    'Auditing':'待审核发货',
+    'Receiving':'待收货',
     'Paying':'待支付',
     'Closed':'已取消',
     'Finish':'已完成'
@@ -499,7 +529,6 @@
     },
     methods: {
       cancelOrder(id){
-        // console.log(id);
         cancelOrder({
           id: id
         }).then(res =>{
@@ -579,11 +608,59 @@
       jump(val){
         this.active = val;
       },
+      eidtPwd(){
+        if (this.dialogForm.pwd.new==''||this.dialogForm.pwd.old==''||this.dialogForm.pwd.renew==''){
+          this.$confirm('不能为空!', '提示', {
+            confirmButtonText: '确定',
+            type: 'warning'
+          })
+        }
+        else {
+          if(this.dialogForm.pwd.new != this.dialogForm.pwd.renew){
+            this.$confirm('两次密码不一致!', '提示', {
+              confirmButtonText: '确定',
+              type: 'warning'
+            })
+          }
+          if(this.dialogForm.pwd.new == this.dialogForm.pwd.old){
+            this.$confirm('新密码与旧密码一致！', '提示', {
+              confirmButtonText: '确定',
+              type: 'warning'
+            })
+          }
+          else {
+            updatePwd({
+              oldpwd:this.dialogForm.pwd.old,
+              newpwd:this.dialogForm.pwd.new,
+              name:$.cookie('userName')
+            }).then(res =>{
+              if(res.message){
+                this.$confirm('密码错误！', '提示', {
+                  confirmButtonText: '确定',
+                  type: 'warning'
+                })
+              }
+              else {
+                this.$notify({
+                  title: '成功',
+                  type: 'success'
+                });
+              }
+            })
+          }
+        }
+        this.dialogForm.pwd = {
+          old:'',
+          new:'',
+          renew:''
+        };
+        this.isdialog.pwdDialog = false;
+      },
       handleSelect(key, keyPath) {
         this.active = key;
       },
       handleClick(tab, event) {
-        console.log(tab, event);
+
       },
       addAddress(){
         this.isaddorEdit = 'add';
@@ -615,11 +692,9 @@
         })
       },
       getCity1(v){
-        console.log(v);
         this.cityList2 = city.find(item =>{
           return item.text == v
         });
-        console.log(this.cityList2);
       }
     },
     mounted(){
@@ -646,7 +721,6 @@
         res.data.forEach(v =>{
           this.num[v.status]++;
         })
-        console.log('num',res.data);
       });
       getCartNum({
         user:$.cookie('userName')
@@ -656,7 +730,6 @@
       getAddress({
         name:$.cookie('userName')
       }).then(res =>{
-        // console.log(res.address);
         if(res.address){
           res.address = eval(res.address);
           this.oldAddress =  JSON.parse(JSON.stringify(res.address));
@@ -666,7 +739,6 @@
           this.oldAddress = {};
           this.addressList = [];
         }
-        console.log(this.addressList);
       })
       getOrderInfo({
         user:$.cookie('userName')
@@ -681,10 +753,8 @@
             return x.id > y.id ? -1:1;
         });
         this.orderInfo = res.data;
-        console.log(res.data);
       })
     }
-    // components: { UcenterBord }
   }
 
 </script>

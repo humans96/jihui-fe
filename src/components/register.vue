@@ -256,11 +256,11 @@
       }
       return {
         register: {
-          password: 'humeng1996',
-          checkpassword: 'humeng1996',
-          name: 'humans',
-          email:'humeng_sq@163.com',
-          phone:'15262051386'
+          password: '',
+          checkpassword: '',
+          name: '',
+          email:'',
+          phone:''
         },
         rules: {
           password: [

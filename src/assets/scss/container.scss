@@ -66,12 +66,11 @@
   div {
     width: 80%;
     margin: 0 auto;
-    height: 100px;
+    // height: 100px;
     // background-color: cadetblue;
     
     p {
-    position: relative;      
-      top: 40px;
+      line-height: 60px;
       text-align: center;
       span {
         float: right;

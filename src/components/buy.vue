@@ -157,7 +157,6 @@
         tip:'',
         formLabelWidth:'120px',
         addressDialog:false,
-        // addressChose:'',
         addressList:[],
         rules: {
           phone:[
@@ -290,13 +289,12 @@
             })
           })
           let product = this.data.map(item =>({
-            id:item.id,
+            id:item.product,
             name:item.pName,
             num:item.num,
             switch:item.switch,
             image:item.image,
-            price:item.sPrice,
-            stock:item.stock
+            price:item.sPrice
           }));
           placeOrder({
             user:$.cookie('userName'),

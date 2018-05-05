@@ -29,6 +29,7 @@
       <el-steps :active="stepIndex[data.status]" align-center>
         <el-step title="下单" :description="data.time" icon="iconfont icon-publishgoods_fill"></el-step>
         <el-step title="待付款" icon="iconfont icon-bu-payment-o"></el-step>
+        <el-step title="待审核发货" icon="el-icon-time"></el-step>
         <el-step title="待收货" icon="el-icon-location-outline"></el-step>
         <el-step title="完成" icon="el-icon-check"></el-step>
       </el-steps>
@@ -95,7 +96,7 @@
           <p class="lab">支付方式 :</p>
         </div>
         <div class="col-xs-8 col-md-9 col-xl-10">
-          <p class="cont">货到付款</p>
+          <p class="cont">{{data.payWay}}</p>
         </div>
       </div>
       <hr>
@@ -105,6 +106,14 @@
         </div>
         <div class="col-xs-8 col-md-9 col-xl-10">
           <p class="cont">快递配送</p>
+        </div>
+      </div>
+      <div class="row" v-if="data.orderID">
+        <div class="col-xs-4 col-md-3 col-xl-2">
+          <p class="lab">快递单号 :</p>
+        </div>
+        <div class="col-xs-8 col-md-9 col-xl-10">
+          <p class="cont">{{data.orderID}}</p>
         </div>
       </div>
       <div class="row">
@@ -162,7 +171,8 @@
         },
         statusMap:{
           'Paying':'待支付',
-          'Auditing':'待收货',
+          'Auditing':'待审核发货',
+          'Receiving':'待收货',
           'Finish':'已完成',
           'Closed':'已取消'
         },

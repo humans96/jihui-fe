@@ -9,7 +9,6 @@
       <div class="login-box-warp">
         <div class="login-box">
           <h2>密码登录</h2>
-          <!-- <el-form ref="form" :model="form"> -->
           <span class="input-group">
             <input type="text" v-model="form.account">
             <span class="input-icon">
@@ -28,14 +27,12 @@
             <input type="button" id="code" @click="createCode()" />
           </span>
 
-          <!-- <input type="button" value="验证" @click="validate()" /> -->
           <button class="login-submit" id="login-btn" type="submit" @click="onSubmit" style="width:100%">登录</button>
 
           <p class="login-box-link">
             <a href='#/register'>免费注册</a>
             <a href="#/forgetPassword">忘记密码</a>
           </p>
-          <!-- </el-form> -->
         </div>
       </div>
     </div>
@@ -100,7 +97,6 @@
               }
             });  
           }
-          
         }
       },
       createCode() {

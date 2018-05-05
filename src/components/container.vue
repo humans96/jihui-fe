@@ -12,13 +12,6 @@
             <template slot="title">产品</template>
             <el-menu-item index="/rift">Oculus Rift</el-menu-item>
             <el-menu-item :index="'/product/'+p.name" :key="p.name" v-for="p in List" v-if="p.name!='Oculus Rift'">{{p.name}}</el-menu-item>
-            <!-- <el-menu-item index="/product/Apple Watch Sport">Apple Watch Sport</el-menu-item>
-            <el-menu-item index="/product/Gear VR">Gear VR</el-menu-item>
-            <el-menu-item index="/product/ALPHA 2">ALPHA 2</el-menu-item>
-            <el-menu-item index="/product/九号平衡车">九号平衡车</el-menu-item>
-            <el-menu-item index="/product/Phantom 4">Phantom 4</el-menu-item>
-            <el-menu-item index="/product/Pico Neo">Pico Neo</el-menu-item>
-            <el-menu-item index="/product/公子小白">公子小白</el-menu-item> -->
           </el-submenu>
           <el-menu-item index="/support">支持</el-menu-item>
           <el-menu-item index="/about">关于</el-menu-item>

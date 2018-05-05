@@ -38,8 +38,6 @@
         <div class="img-box">
           <img class="animate-zoomIn" src="images/produce2.jpg">
         </div>
-        <!-- data-aos="fade-left" -->
-        <!-- data-aos="zoom-out-left" data-aos-offset="0" data-aos-delay="600" -->
         <div class="tip animate-fadeInRight">
           <div class="tip-icon">
             <img src="images/produce-icon1.png">
@@ -55,8 +53,6 @@
         <div class="img-box">
           <img class="animate-rollIn" src="images/produce3.jpg">
         </div>
-        <!-- data-aos="fade-down-right" -->
-        <!-- data-aos="zoom-out-right" data-aos-delay="600" -->
         <div class="tip animate-fadeInLeft">
           <div class="tip-icon">
             <img src="images/produce-icon2.png">
@@ -190,7 +186,7 @@
             product:8,
             num:1,
             time:this.getNowFormatDate(),
-            switch:null
+            switch:[]
           })
           location.reload();
         }
@@ -200,11 +196,7 @@
       }
     },
     mounted(){
-      // AOS.refresh();      
-      // AOS.init({
-      //   offset:100,
-      //   delay:400,
-      // });
+      
       Init();
       let n = 1;
       setInterval(function(){
