@@ -63,9 +63,9 @@ export default function () {
             el.removeClass('item-animate');
           }, k * 50, 'easeInOutExpo');
         });
-      }, 600);
+      }, 100);
     }
-  }, { offset: '100%' });
+  }, { offset: '85%' });
 
   $('.animate-fadeInLeft').waypoint(function () {
     var i = 0;
@@ -84,9 +84,9 @@ export default function () {
             el.removeClass('item-animate');
           }, k * 50, 'easeInOutExpo');
         });
-      }, 600);
+      }, 100);
     }
-  }, { offset: '100%' });
+  }, { offset: '85%' });
 
   $('.animate-zoomIn').waypoint(function () {
     var i = 0;
@@ -107,7 +107,7 @@ export default function () {
         });
       }, 100);
     }
-  }, { offset: '100%' });
+  }, { offset: '85%' });
 
   $('.animate-bounceInLeft').waypoint(function () {
     var i = 0;
@@ -126,9 +126,9 @@ export default function () {
             el.removeClass('item-animate');
           }, k * 50, 'easeInOutExpo');
         });
-      }, 2000);
+      }, 100);
     }
-  }, { offset: '100%' });
+  }, { offset: '85%' });
 
   // $('.animate-bounceInRight').waypoint(function () {
   //   var i = 0;
@@ -170,7 +170,7 @@ export default function () {
         });
       }, 100);
     }
-  }, { offset: '100%' });
+  }, { offset: '85%' });
 
   $('.animate-slideInUp').waypoint(function () {
     var i = 0;
@@ -189,9 +189,9 @@ export default function () {
             el.removeClass('item-animate');
           }, k * 50, 'easeInOutExpo');
         });
-      }, 600);
+      }, 100);
     }
-  }, { offset: '100%' });
+  }, { offset: '85%' });
 
   $('.animate-fadeInUp').waypoint(function () {
     var i = 0;
@@ -220,7 +220,7 @@ export default function () {
         });
       }, 100);
     }
-  }, { offset: '100%' });
+  }, { offset: '85%' });
 
 
 };

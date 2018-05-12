@@ -10,7 +10,6 @@
         @selection-change="handleSelectionChange">
         <el-table-column
           type="selection"
-
           width="55">
         </el-table-column>
         <el-table-column
@@ -140,7 +139,6 @@
             });
           }).catch(() => {       
         });
-        console.log(index, row);
       },
       goSettlement(){
         if(this.multipleSelection.length < 1){

@@ -178,6 +178,9 @@
         if (!value) {
           return callback(new Error('用户名不能为空'));
         }
+        if(value.length<2 || value.length>30){
+          return callback(new Error('用户名长度必须在2~30之间'));
+        }
         check({
           name: value
         }).then(res =>{

@@ -29,14 +29,6 @@
 
   export default {
     name: 'support',
-    // data() {
-    //   // return {
-    //   //   form:{
-    //   //     account:'',
-    //   //     password:''
-    //   //   }
-    //   // };
-    // },
     methods: {
       
     },
