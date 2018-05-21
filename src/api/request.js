@@ -30,7 +30,6 @@ export default (url, method = GET) => (data, ...appendToUrl) => {
   }
 
   if(window.token) {
-    console.log('111');
     headers.token = window.token;
   }
   return new Promise(f => {

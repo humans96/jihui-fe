@@ -89,9 +89,9 @@
             <a href="#/product/公子小白">
               <el-card>
                 <div class="img-container">
-                  <img src="images/公子小白.jpg">
+                  <img src="images/products/九号平衡车/balanceCar_thumbnail_1.jpg">
                 </div>
-                <p class="pro-name">公子小白</p>
+                <p class="pro-name">九号平衡车</p>
                 <p class="desc">智能情感机器人</p>
                 <p class="price">￥1880</p>
               </el-card>
