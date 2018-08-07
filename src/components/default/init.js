@@ -1,11 +1,11 @@
 import $ from 'jQuery';
 
 export default function () {
-  
+
   $('.animate-box').waypoint(function () {
     var i = 0;
-    if(!$(this.element).hasClass('animate-one')){
-      if($(this.element).hasClass('animated')){
+    if (!$(this.element).hasClass('animate-one')) {
+      if ($(this.element).hasClass('animated')) {
         $(this.element).removeClass('animated fadeInUp');
       }
     }
@@ -23,11 +23,13 @@ export default function () {
         });
       }, 100);
     }
-  }, { offset: '85%' });
+  }, {
+    offset: '85%'
+  });
 
   $('.animate-fadeIn').waypoint(function () {
     var i = 0;
-    if($(this.element).hasClass('animated')){
+    if ($(this.element).hasClass('animated')) {
       $(this.element).removeClass('animated fadeIn');
     }
     if (!$(this.element).hasClass('animated')) {
@@ -44,11 +46,13 @@ export default function () {
         });
       }, 100);
     }
-  }, { offset: '85%' });
+  }, {
+    offset: '85%'
+  });
 
   $('.animate-fadeInRight').waypoint(function () {
     var i = 0;
-    if($(this.element).hasClass('animated')){
+    if ($(this.element).hasClass('animated')) {
       $(this.element).removeClass('animated fadeInRight');
     }
     if (!$(this.element).hasClass('animated')) {
@@ -65,11 +69,13 @@ export default function () {
         });
       }, 100);
     }
-  }, { offset: '85%' });
+  }, {
+    offset: '85%'
+  });
 
   $('.animate-fadeInLeft').waypoint(function () {
     var i = 0;
-    if($(this.element).hasClass('animated')){
+    if ($(this.element).hasClass('animated')) {
       $(this.element).removeClass('animated fadeInLeft');
     }
     if (!$(this.element).hasClass('animated')) {
@@ -86,11 +92,13 @@ export default function () {
         });
       }, 100);
     }
-  }, { offset: '85%' });
+  }, {
+    offset: '85%'
+  });
 
   $('.animate-zoomIn').waypoint(function () {
     var i = 0;
-    if($(this.element).hasClass('animated')){
+    if ($(this.element).hasClass('animated')) {
       $(this.element).removeClass('animated zoomIn');
     }
     if (!$(this.element).hasClass('animated')) {
@@ -107,11 +115,13 @@ export default function () {
         });
       }, 100);
     }
-  }, { offset: '85%' });
+  }, {
+    offset: '85%'
+  });
 
   $('.animate-bounceInLeft').waypoint(function () {
     var i = 0;
-    if($(this.element).hasClass('animated')){
+    if ($(this.element).hasClass('animated')) {
       $(this.element).removeClass('animated bounceInLeft');
     }
     if (!$(this.element).hasClass('animated')) {
@@ -128,7 +138,9 @@ export default function () {
         });
       }, 100);
     }
-  }, { offset: '85%' });
+  }, {
+    offset: '85%'
+  });
 
   // $('.animate-bounceInRight').waypoint(function () {
   //   var i = 0;
@@ -153,7 +165,7 @@ export default function () {
 
   $('.animate-rollIn').waypoint(function () {
     var i = 0;
-    if($(this.element).hasClass('animated')){
+    if ($(this.element).hasClass('animated')) {
       $(this.element).removeClass('animated rollIn');
     }
     if (!$(this.element).hasClass('animated')) {
@@ -170,11 +182,13 @@ export default function () {
         });
       }, 100);
     }
-  }, { offset: '85%' });
+  }, {
+    offset: '85%'
+  });
 
   $('.animate-slideInUp').waypoint(function () {
     var i = 0;
-    if($(this.element).hasClass('animated')){
+    if ($(this.element).hasClass('animated')) {
       $(this.element).removeClass('animated slideInUp');
     }
     if (!$(this.element).hasClass('animated')) {
@@ -191,11 +205,13 @@ export default function () {
         });
       }, 100);
     }
-  }, { offset: '85%' });
+  }, {
+    offset: '85%'
+  });
 
   $('.animate-fadeInUp').waypoint(function () {
     var i = 0;
-    if($(this.element).hasClass('animated')){
+    if ($(this.element).hasClass('animated')) {
       $(this.element).removeClass('animated fadeInUp');
     }
     if (!$(this.element).hasClass('animated')) {
@@ -205,13 +221,12 @@ export default function () {
       setTimeout(function () {
         $('body .animate-fadeInUp.item-animate').each(function (k) {
           var el = $(this);
-          if(el.hasClass('animate-box')){
+          if (el.hasClass('animate-box')) {
             setTimeout(function () {
               el.addClass('fadeInUp animated');
               el.removeClass('item-animate');
             }, 1000, 'easeInOutExpo');
-          }
-          else {
+          } else {
             setTimeout(function () {
               el.addClass('fadeInUp animated');
               el.removeClass('item-animate');
@@ -220,7 +235,9 @@ export default function () {
         });
       }, 100);
     }
-  }, { offset: '85%' });
+  }, {
+    offset: '85%'
+  });
 
 
 };

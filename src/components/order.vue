@@ -37,43 +37,32 @@
 
     <div class="container products">
       <div class="cart-body">
-        <el-table
-          ref="multipleTable"
-          :data="data.product"
-          tooltip-effect="dark"
-          style="width: 100%">
-          <el-table-column
-            label="商品"
-            min-width="300"
-          >
+        <el-table ref="multipleTable" :data="data.product" tooltip-effect="dark" style="width: 100%">
+          <el-table-column label="商品" min-width="300">
             <template slot-scope="scope">
               <div class="img-box">
-                <img :src="'images/products/' + scope.row.image">              
+                <img :src="'images/products/' + scope.row.image">
               </div>
               <div class="title">
                 <p class="name">{{scope.row.name}}</p>
-                <p class="switch"><span v-for="val in scope.row.switch">{{val}}&nbsp; &nbsp; </span></p>
+                <p class="switch">
+                  <span v-for="val in scope.row.switch">{{val}}&nbsp; &nbsp; </span>
+                </p>
               </div>
             </template>
           </el-table-column>
-          <el-table-column
-            label="单价"
-            width="120">
+          <el-table-column label="单价" width="120">
             <template slot-scope="scope">
               <p class="sPrice">{{scope.row.price}}元</p>
             </template>
           </el-table-column>
-          <el-table-column
-            label="数量"
-            width="180">
+          <el-table-column label="数量" width="180">
             <template slot-scope="scope">
               <p>{{scope.row.num}}</p>
               <!-- <el-input-number size="mini" v-model="scope.row.num" @change="handleChange(scope.row)" :min="1" :max="scope.row.stock"></el-input-number> -->
             </template>
           </el-table-column>
-          <el-table-column
-            label="小计"
-            width="120">
+          <el-table-column label="小计" width="120">
             <template slot-scope="scope">
               <p class="tPrice">{{(scope.row.price * scope.row.num).toFixed(2)}}元</p>
             </template>
@@ -150,54 +139,56 @@
   import Vue from 'vue';
   import Init from 'components/default/init';
   import $ from 'jQuery';
-  import {getOrderInfo} from 'api/product.js';
+  import {
+    getOrderInfo
+  } from 'api/product.js';
   export default {
     name: 'order',
     data() {
       return {
-        dialog:false,
-        data:{
-          address:{
+        dialog: false,
+        data: {
+          address: {
             name: '',
             phone: '',
-            address:{
-              tier1:'',
-              tier2:'',
-              addressDesc:''
+            address: {
+              tier1: '',
+              tier2: '',
+              addressDesc: ''
             }
           },
-          status:'',
-          attention:'',
+          status: '',
+          attention: '',
         },
-        statusMap:{
-          'Paying':'待支付',
-          'Auditing':'待审核发货',
-          'Receiving':'待收货',
-          'Finish':'已完成',
-          'Closed':'已取消'
+        statusMap: {
+          'Paying': '待支付',
+          'Auditing': '待审核发货',
+          'Receiving': '待收货',
+          'Finish': '已完成',
+          'Closed': '已取消'
         },
-        stepIndex:{
-          'Paying':1,
-          'Auditing':2,
-          'Finish':4,
+        stepIndex: {
+          'Paying': 1,
+          'Auditing': 2,
+          'Finish': 4,
         }
       };
     },
     methods: {
-      payed(){
+      payed() {
         this.dialog = false;
         this.stepIndex = 2;
       }
     },
-    created(){
+    created() {
       getOrderInfo({
-        id:this.$route.params.id
-      }).then(res =>{
+        id: this.$route.params.id
+      }).then(res => {
         res.data[0].address = eval('(' + res.data[0].address + ')');
         res.data[0].product = eval('(' + res.data[0].product + ')');
         this.data = res.data[0];
 
-        console.log('data',this.data);
+        console.log('data', this.data);
       })
     },
     mounted() {

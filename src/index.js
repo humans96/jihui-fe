@@ -7,5 +7,4 @@ import 'components/lib/sticky.js';
 /* eslint-disable */
 import style from 'scss/index.scss';
 
-
 app.$mount('#app');

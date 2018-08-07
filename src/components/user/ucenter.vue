@@ -1,13 +1,7 @@
 <template lang="html">
 
   <div class="ucenter">
-      <el-menu
-      :default-active="active"
-      :collapse="iscollapse"
-      class="el-menu-vertical-demo dashbord"
-      @select="handleSelect"
-      :default-openeds="['1', '2']"
-      >
+    <el-menu :default-active="active" :collapse="iscollapse" class="el-menu-vertical-demo dashbord" @select="handleSelect" :default-openeds="['1', '2']">
       <el-submenu index="1">
         <template slot="title">
           <i class="iconfont icon-people_fill"></i>
@@ -46,9 +40,18 @@
           </div>
         </div>
         <div class="menu-card">
-          <p @click="jump('1-2')"><i class="iconfont icon-order"></i> 查看所有订单 <span class="linkto"> > </span></p>     
-          <p @click="jump('1-3')"><i class="iconfont icon-bookmark"></i> 我的优惠券 <span class="linkto"> > </span></p>      
-          <p @click="jump('1-4')"><i class="iconfont icon-map"></i> 收货地址 <span class="linkto"> > </span></p>      
+          <p @click="jump('1-2')">
+            <i class="iconfont icon-order"></i> 查看所有订单
+            <span class="linkto"> > </span>
+          </p>
+          <p @click="jump('1-3')">
+            <i class="iconfont icon-bookmark"></i> 我的优惠券
+            <span class="linkto"> > </span>
+          </p>
+          <p @click="jump('1-4')">
+            <i class="iconfont icon-map"></i> 收货地址
+            <span class="linkto"> > </span>
+          </p>
           <!-- <p @click="jump('1-2')"><i class="iconfont icon-payment"></i> 消费明细 <span class="linkto"> > </span></p> -->
           <!-- <p @click="jump('1-5')"><i class="iconfont icon-edit"></i> 修改个人信息 <span class="linkto"> > </span></p>          -->
         </div>
@@ -61,19 +64,25 @@
               <div class="order-info row">
                 <div class="col-sm-8 col-xs-12">
                   <p class="status">{{statusMap[item.status]}}</p>
-                  <p>{{item.time}}  {{item.payWay}}</p>
+                  <p>{{item.time}} {{item.payWay}}</p>
                 </div>
                 <div class="col-sm-4 col-xs-12 order-num">
-                  <p>订单金额：<span class="price">{{item.price}}元</span></p>
+                  <p>订单金额：
+                    <span class="price">{{item.price}}元</span>
+                  </p>
                 </div>
               </div>
               <div class="order-product row" v-for="p in item.product">
                 <div class="col-xs-12">
                   <div class="img-box">
-                    <a :href="'#/product/' + p.name"><img :src="'images/products/' + p.image"></a>
+                    <a :href="'#/product/' + p.name">
+                      <img :src="'images/products/' + p.image">
+                    </a>
                   </div>
                   <div class="desc">
-                    <p class="name"><a href="#/rift">{{p.name}}</a></p>
+                    <p class="name">
+                      <a href="#/rift">{{p.name}}</a>
+                    </p>
                     <p class="num">{{p.price}}元 x {{p.num}}</p>
                   </div>
                 </div>
@@ -83,7 +92,9 @@
                   <el-button plain @click="cancelOrder(item.id)">取消订单</el-button>
                 </div>
                 <div class="col-xs-12 col-sm-4 col-lg-2 butt">
-                  <a :href="'#/order/' + item.id"><el-button type="info" plain>订单详情</el-button></a>
+                  <a :href="'#/order/' + item.id">
+                    <el-button type="info" plain>订单详情</el-button>
+                  </a>
                 </div>
                 <div class="col-xs-12 col-sm-4 col-lg-2 butt" v-if="item.status == 'Paying'">
                   <el-button type="danger" @click="ispaying=true">立即付款</el-button>
@@ -96,19 +107,25 @@
               <div class="order-info row">
                 <div class="col-sm-8 col-xs-12">
                   <p class="status">{{statusMap[item.status]}}</p>
-                  <p>{{item.time}}  {{item.payWay}}</p>
+                  <p>{{item.time}} {{item.payWay}}</p>
                 </div>
                 <div class="col-sm-4 col-xs-12 order-num">
-                  <p>订单金额：<span class="price">{{item.price}}元</span></p>
+                  <p>订单金额：
+                    <span class="price">{{item.price}}元</span>
+                  </p>
                 </div>
               </div>
               <div class="order-product row" v-for="p in item.product">
                 <div class="col-xs-12">
                   <div class="img-box">
-                    <a :href="'#/product/' + p.name"><img :src="'images/products/' + p.image"></a>
+                    <a :href="'#/product/' + p.name">
+                      <img :src="'images/products/' + p.image">
+                    </a>
                   </div>
                   <div class="desc">
-                    <p class="name"><a href="#/rift">{{p.name}}</a></p>
+                    <p class="name">
+                      <a href="#/rift">{{p.name}}</a>
+                    </p>
                     <p class="num">{{p.price}}元 x {{p.num}}</p>
                   </div>
                 </div>
@@ -118,10 +135,12 @@
                   <el-button plain @click="cancelOrder(item.id)">取消订单</el-button>
                 </div>
                 <div class="col-xs-12 col-sm-4 col-lg-2 butt">
-                  <a :href="'#/order/' + item.id"><el-button type="info" plain>订单详情</el-button></a>
+                  <a :href="'#/order/' + item.id">
+                    <el-button type="info" plain>订单详情</el-button>
+                  </a>
                 </div>
                 <div class="col-xs-12 col-sm-4 col-lg-2 butt">
-                  <el-button type="danger"  @click="ispaying=true">立即付款</el-button>
+                  <el-button type="danger" @click="ispaying=true">立即付款</el-button>
                 </div>
               </div>
             </div>
@@ -131,26 +150,34 @@
               <div class="order-info row">
                 <div class="col-sm-8 col-xs-12">
                   <p class="status">{{statusMap[item.status]}}</p>
-                  <p>{{item.time}}  {{item.payWay}}</p>
+                  <p>{{item.time}} {{item.payWay}}</p>
                 </div>
                 <div class="col-sm-4 col-xs-12 order-num">
-                  <p>订单金额：<span class="price">{{item.price}}元</span></p>
+                  <p>订单金额：
+                    <span class="price">{{item.price}}元</span>
+                  </p>
                 </div>
               </div>
               <div class="order-product row" v-for="p in item.product">
                 <div class="col-xs-12">
                   <div class="img-box">
-                    <a :href="'#/product/' + p.name"><img :src="'images/products/' + p.image"></a>
+                    <a :href="'#/product/' + p.name">
+                      <img :src="'images/products/' + p.image">
+                    </a>
                   </div>
                   <div class="desc">
-                    <p class="name"><a href="#/rift">{{p.name}}</a></p>
+                    <p class="name">
+                      <a href="#/rift">{{p.name}}</a>
+                    </p>
                     <p class="num">{{p.price}}元 x {{p.num}}</p>
                   </div>
                 </div>
               </div>
               <div class="row order-btn justify-content-end">
                 <div class="col-xs-12 col-sm-4 col-lg-2 butt">
-                  <a :href="'#/order/' + item.id"><el-button type="info" plain>订单详情</el-button></a>
+                  <a :href="'#/order/' + item.id">
+                    <el-button type="info" plain>订单详情</el-button>
+                  </a>
                 </div>
               </div>
             </div>
@@ -160,26 +187,34 @@
               <div class="order-info row">
                 <div class="col-sm-8 col-xs-12">
                   <p class="status">{{statusMap[item.status]}}</p>
-                  <p>{{item.time}}  {{item.payWay}}</p>
+                  <p>{{item.time}} {{item.payWay}}</p>
                 </div>
                 <div class="col-sm-4 col-xs-12 order-num">
-                  <p>订单金额：<span class="price">{{item.price}}元</span></p>
+                  <p>订单金额：
+                    <span class="price">{{item.price}}元</span>
+                  </p>
                 </div>
               </div>
               <div class="order-product row" v-for="p in item.product">
                 <div class="col-xs-12">
                   <div class="img-box">
-                    <a :href="'#/product/' + p.name"><img :src="'images/products/' + p.image"></a>
+                    <a :href="'#/product/' + p.name">
+                      <img :src="'images/products/' + p.image">
+                    </a>
                   </div>
                   <div class="desc">
-                    <p class="name"><a href="#/rift">{{p.name}}</a></p>
+                    <p class="name">
+                      <a href="#/rift">{{p.name}}</a>
+                    </p>
                     <p class="num">{{p.price}}元 x {{p.num}}</p>
                   </div>
                 </div>
               </div>
               <div class="row order-btn justify-content-end">
                 <div class="col-xs-12 col-sm-4 col-lg-2 butt">
-                  <a :href="'#/order/' + item.id"><el-button type="info" plain>订单详情</el-button></a>
+                  <a :href="'#/order/' + item.id">
+                    <el-button type="info" plain>订单详情</el-button>
+                  </a>
                 </div>
               </div>
             </div>
@@ -189,26 +224,34 @@
               <div class="order-info row">
                 <div class="col-sm-8 col-xs-12">
                   <p class="status">{{statusMap[item.status]}}</p>
-                  <p>{{item.time}}  {{item.payWay}}</p>
+                  <p>{{item.time}} {{item.payWay}}</p>
                 </div>
                 <div class="col-sm-4 col-xs-12 order-num">
-                  <p>订单金额：<span class="price">{{item.price}}元</span></p>
+                  <p>订单金额：
+                    <span class="price">{{item.price}}元</span>
+                  </p>
                 </div>
               </div>
               <div class="order-product row" v-for="p in item.product">
                 <div class="col-xs-12">
                   <div class="img-box">
-                    <a :href="'#/product/' + p.name"><img :src="'images/products/' + p.image"></a>
+                    <a :href="'#/product/' + p.name">
+                      <img :src="'images/products/' + p.image">
+                    </a>
                   </div>
                   <div class="desc">
-                    <p class="name"><a href="#/rift">{{p.name}}</a></p>
+                    <p class="name">
+                      <a href="#/rift">{{p.name}}</a>
+                    </p>
                     <p class="num">{{p.price}}元 x {{p.num}}</p>
                   </div>
                 </div>
               </div>
               <div class="row order-btn justify-content-end">
                 <div class="col-xs-12 col-sm-4 col-lg-2 butt">
-                  <a :href="'#/order/' + item.id"><el-button type="info" plain>订单详情</el-button></a>
+                  <a :href="'#/order/' + item.id">
+                    <el-button type="info" plain>订单详情</el-button>
+                  </a>
                 </div>
               </div>
             </div>
@@ -218,36 +261,41 @@
               <div class="order-info row">
                 <div class="col-sm-8 col-xs-12">
                   <p class="status">{{statusMap[item.status]}}</p>
-                  <p>{{item.time}}  {{item.payWay}}</p>
+                  <p>{{item.time}} {{item.payWay}}</p>
                 </div>
                 <div class="col-sm-4 col-xs-12 order-num">
-                  <p>订单金额：<span class="price">{{item.price}}元</span></p>
+                  <p>订单金额：
+                    <span class="price">{{item.price}}元</span>
+                  </p>
                 </div>
               </div>
               <div class="order-product row" v-for="p in item.product">
                 <div class="col-sm-9 col-xs-12 col-xl-10">
                   <div class="img-box">
-                    <a :href="'#/product/' + p.name"><img :src="'images/products/' + p.image"></a>
+                    <a :href="'#/product/' + p.name">
+                      <img :src="'images/products/' + p.image">
+                    </a>
                   </div>
                   <div class="desc">
-                    <p class="name"><a href="#/rift">{{p.name}}</a></p>
+                    <p class="name">
+                      <a href="#/rift">{{p.name}}</a>
+                    </p>
                     <p class="num">{{p.price}}元 x {{p.num}}</p>
                   </div>
                 </div>
               </div>
               <div class="row order-btn justify-content-end">
                 <div class="col-xs-12 col-sm-4 col-lg-2 butt">
-                  <a :href="'#/order/' + item.id"><el-button type="info" plain>订单详情</el-button></a>
+                  <a :href="'#/order/' + item.id">
+                    <el-button type="info" plain>订单详情</el-button>
+                  </a>
                 </div>
               </div>
             </div>
           </el-tab-pane>
         </el-tabs>
       </div>
-      <el-dialog
-        title="扫码支付"
-        :visible.sync="ispaying"
-        width="30%">
+      <el-dialog title="扫码支付" :visible.sync="ispaying" width="30%">
         <p style="text-align: center">这是付款二维码</p>
         <img style="display: flex" src="images/二维码.png">
         <span slot="footer" class="dialog-footer">
@@ -261,8 +309,16 @@
           <el-tab-pane label="已领取" name="first">
             <div class="demo">
               <div class="stamp stamp01">
-                <div class="par"><p>新用户优惠券</p><sub class="sign">￥</sub><span>50.00</span><p>订单满100.00元</p></div>
-                <div class="copy">副券<p>2017-08-13<br>2018-08-13</p></div>
+                <div class="par">
+                  <p>新用户优惠券</p>
+                  <sub class="sign">￥</sub>
+                  <span>50.00</span>
+                  <p>订单满100.00元</p>
+                </div>
+                <div class="copy">副券
+                  <p>2017-08-13
+                    <br>2018-08-13</p>
+                </div>
                 <i></i>
               </div>
             </div>
@@ -290,10 +346,10 @@
             </div>
             <p class="name">{{item.name}}</p>
             <p class="phone">{{item.phone}}</p>
-            <p class="address">{{item.address.tier1}}  {{item.address.tier2}} {{item.address.addressDesc}}</p>
+            <p class="address">{{item.address.tier1}} {{item.address.tier2}} {{item.address.addressDesc}}</p>
           </div>
         </div>
-        
+
       </div>
       <el-dialog title="收货地址" :visible.sync="isdialog.addressDialog">
         <el-form :model="dialogForm.address" :rules="rules">
@@ -305,18 +361,10 @@
           </el-form-item>
           <el-form-item label="收件人地址" prop="address.tier2" :label-width="formLabelWidth" :required="true">
             <el-select v-model="dialogForm.address.address.tier1" placeholder="请选择地址" @change="getCity1">
-              <el-option 
-              v-for="item in cityList1"
-              :key="item.value"
-              :label="item.text"
-              :value="item.text"></el-option>
+              <el-option v-for="item in cityList1" :key="item.value" :label="item.text" :value="item.text"></el-option>
             </el-select>
             <el-select v-model="dialogForm.address.address.tier2" placeholder="请选择地址">
-              <el-option 
-              v-for="item in cityList2.children"
-              :key="item.value"
-              :label="item.text"
-              :value="item.text"></el-option>
+              <el-option v-for="item in cityList2.children" :key="item.value" :label="item.text" :value="item.text"></el-option>
             </el-select>
           </el-form-item>
           <el-form-item label="详细地址" prop="address.addressDesc" :label-width="formLabelWidth" :required="true">
@@ -332,7 +380,7 @@
       <div class="index-2" v-if="active == '2'">
         <div class="safe-item row">
           <div class="left-body col-xs-12 col-sm-1">
-            <i class="iconfont icon-unlockalt"></i>              
+            <i class="iconfont icon-unlockalt"></i>
           </div>
           <div class="right-body col-xs-12 col-sm-10">
             <div class="row">
@@ -348,12 +396,14 @@
         </div>
         <div class="safe-item row">
           <div class="left-body col-xs-12 col-sm-1">
-            <i class="iconfont icon-envelope"></i>              
+            <i class="iconfont icon-envelope"></i>
           </div>
           <div class="right-body col-xs-12 col-sm-10">
             <div class="row">
               <div class="col-xs-8 col-sm-10">
-                <p class="name">邮箱绑定 <span>未绑定</span></p>
+                <p class="name">邮箱绑定
+                  <span>未绑定</span>
+                </p>
                 <p class="desc">邮箱绑定可以用于登录帐号，重置密码或其他安全验证</p>
               </div>
               <div class="col-xs-4 col-sm-2">
@@ -364,12 +414,14 @@
         </div>
         <div class="safe-item row">
           <div class="left-body col-xs-12 col-sm-1">
-            <i class="iconfont icon-mobile"></i>              
+            <i class="iconfont icon-mobile"></i>
           </div>
           <div class="right-body col-xs-12 col-sm-10">
             <div class="row">
               <div class="col-xs-8 col-sm-10">
-                <p class="name">手机绑定 <span>未绑定</span></p>
+                <p class="name">手机绑定
+                  <span>未绑定</span>
+                </p>
                 <p class="desc">手机绑定可以用于登录帐号，重置密码或其他安全验证</p>
               </div>
               <div class="col-xs-4 col-sm-2">
@@ -427,24 +479,37 @@
 
     </div>
   </div>
-  
+
 
 </template>
-    
+
 <script>
   import Vue from 'vue';
   import Init from 'components/default/init';
   import $ from 'jQuery';
-  import {city} from 'components/default/city';
-  import {getOrderNum,getCartNum,getAddress,addAddress,deleteAddress, editAddress, updatePwd} from 'api/user.js';
-  import {getOrderInfo, cancelOrder} from 'api/product.js';
-  
+  import {
+    city
+  } from 'components/default/city';
+  import {
+    getOrderNum,
+    getCartNum,
+    getAddress,
+    addAddress,
+    deleteAddress,
+    editAddress,
+    updatePwd
+  } from 'api/user.js';
+  import {
+    getOrderInfo,
+    cancelOrder
+  } from 'api/product.js';
+
   const statusMap = {
-    'Auditing':'待审核发货',
-    'Receiving':'待收货',
-    'Paying':'待支付',
-    'Closed':'已取消',
-    'Finish':'已完成'
+    'Auditing': '待审核发货',
+    'Receiving': '待收货',
+    'Paying': '待支付',
+    'Closed': '已取消',
+    'Finish': '已完成'
   };
 
   export default {
@@ -454,145 +519,143 @@
         if (!value) {
           return callback(new Error('手机号不能为空'));
         }
-        var myreg=/^[1][3,4,5,7,8][0-9]{9}$/;  
-        if (!myreg.test(value)) {  
+        var myreg = /^[1][3,4,5,7,8][0-9]{9}$/;
+        if (!myreg.test(value)) {
           return callback(new Error('手机号码格式错误'));
           this.$confirm('手机号码格式错误，请重新填写！', '提示', {
             confirmButtonText: '确定',
             type: 'warning'
           })
-        } else {  
+        } else {
           callback();
-        }  
+        }
       };
       return {
-        username:$.cookie('userName'),
+        username: $.cookie('userName'),
         active: '1-1',
         activeName: 'first',
-        coupon:'first',
-        iscollapse:false,
-        carNum:0,
-        addressList:[],
-        ispaying:false,
-        orderInfo:[],
-        num:{
-          Auditing:0,
-          Paying:0,
-          Finish:0
+        coupon: 'first',
+        iscollapse: false,
+        carNum: 0,
+        addressList: [],
+        ispaying: false,
+        orderInfo: [],
+        num: {
+          Auditing: 0,
+          Paying: 0,
+          Finish: 0
         },
-        isdialog:{
-          addressDialog:false,
-          pwdDialog:false,
-          emailDialog:false,
-          phoneDialog:false
+        isdialog: {
+          addressDialog: false,
+          pwdDialog: false,
+          emailDialog: false,
+          phoneDialog: false
         },
-        statusMap:statusMap,
-        isaddorEdit:'',
-        oldAddress:{},
-        oldIndex:'',
+        statusMap: statusMap,
+        isaddorEdit: '',
+        oldAddress: {},
+        oldIndex: '',
         dialogForm: {
-          address:{
+          address: {
             name: '',
             phone: '',
-            address:{
-              tier1:'',
-              tier2:'',
-              addressDesc:''
+            address: {
+              tier1: '',
+              tier2: '',
+              addressDesc: ''
             }
           },
-          pwd:{
-            old:'',
-            new:'',
-            renew:''
+          pwd: {
+            old: '',
+            new: '',
+            renew: ''
           },
-          email:{
-            value:''
+          email: {
+            value: ''
           },
-          phone:{
-            num:'',
-            valid:''
+          phone: {
+            num: '',
+            valid: ''
           }
         },
         rules: {
-          phone:[
-            { validator: validatePhone, trigger: 'blur' }
-          ],
+          phone: [{
+            validator: validatePhone,
+            trigger: 'blur'
+          }],
         },
-        cityList1:city,
-        cityList2:'',
-        formLabelWidth:'120px'
+        cityList1: city,
+        cityList2: '',
+        formLabelWidth: '120px'
       };
     },
     methods: {
-      cancelOrder(id){
+      cancelOrder(id) {
         cancelOrder({
           id: id
-        }).then(res =>{
+        }).then(res => {
           getOrderNum({
-            user:$.cookie('userName')
-          }).then(res =>{
-            res.data.forEach(v =>{
+            user: $.cookie('userName')
+          }).then(res => {
+            res.data.forEach(v => {
               this.num[v.status]++;
             })
           });
           getOrderInfo({
-            user:$.cookie('userName')
-          }).then(res =>{
-            if(res.data.length>=1){
-              res.data.forEach(item =>{
-                item.address = eval( '(' + item.address + ')');
-                item.product = eval( '(' + item.product + ')');
+            user: $.cookie('userName')
+          }).then(res => {
+            if (res.data.length >= 1) {
+              res.data.forEach(item => {
+                item.address = eval('(' + item.address + ')');
+                item.product = eval('(' + item.product + ')');
               })
             }
-            res.data.sort(function(x, y){
-                return x.id > y.id ? -1:1;
+            res.data.sort(function (x, y) {
+              return x.id > y.id ? -1 : 1;
             });
             this.orderInfo = res.data;
           })
         })
       },
-      addrConf(){
-        if(this.dialogForm.address.name == ''|| this.dialogForm.address.phone == '' || this.dialogForm.address.address.tier2 == ''|| this.dialogForm.address.address.addressDesc==''){
+      addrConf() {
+        if (this.dialogForm.address.name == '' || this.dialogForm.address.phone == '' || this.dialogForm.address.address
+          .tier2 == '' || this.dialogForm.address.address.addressDesc == '') {
           this.$confirm('请填写完整的信息！', '提示', {
             confirmButtonText: '确定',
             type: 'warning'
           })
-        }
-        else {
-          if(this.isaddorEdit == 'add'){
+        } else {
+          if (this.isaddorEdit == 'add') {
             addAddress({
-              name:$.cookie('userName') ,
-              address:this.dialogForm.address
-            }).then(res =>{
+              name: $.cookie('userName'),
+              address: this.dialogForm.address
+            }).then(res => {
               getAddress({
-                name:$.cookie('userName')
-              }).then(res =>{
-                if(res.address.length >= 1){
+                name: $.cookie('userName')
+              }).then(res => {
+                if (res.address.length >= 1) {
                   res.address = eval(res.address);
-                  this.oldAddress =  JSON.parse(JSON.stringify(res.address));
+                  this.oldAddress = JSON.parse(JSON.stringify(res.address));
                   this.addressList = res.address;
-                }
-                else{
+                } else {
                   this.addressList = [];
                 }
               })
             })
-          }
-          else{
+          } else {
             editAddress({
-              name:$.cookie('userName'),
+              name: $.cookie('userName'),
               old: this.oldAddress[this.oldIndex],
-              new:this.dialogForm.address
-            }).then(res =>{
+              new: this.dialogForm.address
+            }).then(res => {
               getAddress({
-                name:$.cookie('userName')
-              }).then(res =>{
-                if(res.address.length >= 1){
+                name: $.cookie('userName')
+              }).then(res => {
+                if (res.address.length >= 1) {
                   res.address = eval(res.address);
-                  this.oldAddress =  JSON.parse(JSON.stringify(res.address));
+                  this.oldAddress = JSON.parse(JSON.stringify(res.address));
                   this.addressList = res.address;
-                }
-                else{
+                } else {
                   this.addressList = [];
                 }
               })
@@ -601,42 +664,39 @@
           this.isdialog.addressDialog = false;
         }
       },
-      jump(val){
+      jump(val) {
         this.active = val;
       },
-      eidtPwd(){
-        if (this.dialogForm.pwd.new==''||this.dialogForm.pwd.old==''||this.dialogForm.pwd.renew==''){
+      eidtPwd() {
+        if (this.dialogForm.pwd.new == '' || this.dialogForm.pwd.old == '' || this.dialogForm.pwd.renew == '') {
           this.$confirm('不能为空!', '提示', {
             confirmButtonText: '确定',
             type: 'warning'
           })
-        }
-        else {
-          if(this.dialogForm.pwd.new != this.dialogForm.pwd.renew){
+        } else {
+          if (this.dialogForm.pwd.new != this.dialogForm.pwd.renew) {
             this.$confirm('两次密码不一致!', '提示', {
               confirmButtonText: '确定',
               type: 'warning'
             })
           }
-          if(this.dialogForm.pwd.new == this.dialogForm.pwd.old){
+          if (this.dialogForm.pwd.new == this.dialogForm.pwd.old) {
             this.$confirm('新密码与旧密码一致！', '提示', {
               confirmButtonText: '确定',
               type: 'warning'
             })
-          }
-          else {
+          } else {
             updatePwd({
-              oldpwd:this.dialogForm.pwd.old,
-              newpwd:this.dialogForm.pwd.new,
-              name:$.cookie('userName')
-            }).then(res =>{
-              if(res.message){
+              oldpwd: this.dialogForm.pwd.old,
+              newpwd: this.dialogForm.pwd.new,
+              name: $.cookie('userName')
+            }).then(res => {
+              if (res.message) {
                 this.$confirm('密码错误！', '提示', {
                   confirmButtonText: '确定',
                   type: 'warning'
                 })
-              }
-              else {
+              } else {
                 this.$notify({
                   title: '成功',
                   type: 'success'
@@ -646,9 +706,9 @@
           }
         }
         this.dialogForm.pwd = {
-          old:'',
-          new:'',
-          renew:''
+          old: '',
+          new: '',
+          renew: ''
         };
         this.isdialog.pwdDialog = false;
       },
@@ -658,95 +718,91 @@
       handleClick(tab, event) {
 
       },
-      addAddress(){
+      addAddress() {
         this.isaddorEdit = 'add';
         this.isdialog.addressDialog = true;
       },
-      editAdress(val,index){
+      editAdress(val, index) {
         this.isaddorEdit = 'edit';
         this.dialogForm.address = val;
         this.oldIndex = index;
-        this.isdialog.addressDialog = true;        
+        this.isdialog.addressDialog = true;
       },
-      deleteAdress(val){
+      deleteAdress(val) {
         deleteAddress({
-          name:$.cookie('userName') ,
-          address:val
-        }).then(res =>{
+          name: $.cookie('userName'),
+          address: val
+        }).then(res => {
           getAddress({
-            name:$.cookie('userName')
-          }).then(res =>{
-            if(res.address.length >= 1){
+            name: $.cookie('userName')
+          }).then(res => {
+            if (res.address.length >= 1) {
               res.address = eval(res.address);
-              this.oldAddress =  JSON.parse(JSON.stringify(res.address));
+              this.oldAddress = JSON.parse(JSON.stringify(res.address));
               this.addressList = res.address;
-            }
-            else{
+            } else {
               this.addressList = [];
             }
           })
         })
       },
-      getCity1(v){
-        this.cityList2 = city.find(item =>{
+      getCity1(v) {
+        this.cityList2 = city.find(item => {
           return item.text == v
         });
       }
     },
-    mounted(){
+    mounted() {
       Init();
-      if(window.innerWidth <=600 ){
+      if (window.innerWidth <= 600) {
         this.iscollapse = true;
-      }
-      else {
+      } else {
         this.iscollapse = false;
       }
       window.onresize = () => {
-        if(window.innerWidth <=600 ){
+        if (window.innerWidth <= 600) {
           this.iscollapse = true;
-        }
-        else {
+        } else {
           this.iscollapse = false;
         }
       }
     },
-    created(){
+    created() {
       getOrderNum({
-        user:$.cookie('userName')
-      }).then(res =>{
-        res.data.forEach(v =>{
+        user: $.cookie('userName')
+      }).then(res => {
+        res.data.forEach(v => {
           this.num[v.status]++;
         })
       });
       getCartNum({
-        user:$.cookie('userName')
-      }).then(res =>{
+        user: $.cookie('userName')
+      }).then(res => {
         this.carNum = res.num;
       });
       getAddress({
-        name:$.cookie('userName')
-      }).then(res =>{
-        if(res.address){
+        name: $.cookie('userName')
+      }).then(res => {
+        if (res.address) {
           res.address = eval(res.address);
-          this.oldAddress =  JSON.parse(JSON.stringify(res.address));
+          this.oldAddress = JSON.parse(JSON.stringify(res.address));
           this.addressList = res.address;
-        }
-        else{
+        } else {
           this.oldAddress = {};
           this.addressList = [];
         }
       })
       getOrderInfo({
-        user:$.cookie('userName')
-      }).then(res =>{
-        if(res.data.length>=1){
-          res.data.forEach(item =>{
-            item.address = eval( '(' + item.address + ')');
-            item.product = eval( '(' + item.product + ')');
+        user: $.cookie('userName')
+      }).then(res => {
+        if (res.data.length >= 1) {
+          res.data.forEach(item => {
+            item.address = eval('(' + item.address + ')');
+            item.product = eval('(' + item.product + ')');
           })
         }
-        res.data.sort(function(x, y){
-            return x.id > y.id ? -1:1;
+        res.data.sort(function (x, y) {
+          return x.id > y.id ? -1 : 1;
         });
         this.orderInfo = res.data;
       })
@@ -756,8 +812,6 @@
 </script>
 
 <style lang="scss">
-  
-  
+
+
 </style>
-    
-    

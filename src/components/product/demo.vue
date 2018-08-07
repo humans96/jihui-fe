@@ -24,7 +24,7 @@
             <div class="bg_right">
               <div class="bigshow">
                 <div class="bigitem">
-                    <img :src="'images/products/' + product.name + '/' + product.switch.image[0]">
+                  <img :src="'images/products/' + product.name + '/' + product.switch.image[0]">
                 </div>
               </div>
             </div>
@@ -73,7 +73,7 @@
                   <img v-for="val in product.function" :src="'images/products/' + product.name + '/' + val">
                 </div>
               </el-tab-pane>
-              <el-tab-pane label="包装" name="third" v-if="product.packing.length>0"  class="packing">
+              <el-tab-pane label="包装" name="third" v-if="product.packing.length>0" class="packing">
                 <div class="img-box">
                   <img v-for="val in product.packing" :src="'images/products/' + product.name + '/' + val">
                 </div>
@@ -103,49 +103,55 @@
 <script>
   import Vue from 'vue';
   import mag from 'components/default/show';
-  import {getProduct, addCart, placeOrder} from 'api/product.js';
+  import {
+    getProduct,
+    addCart,
+    placeOrder
+  } from 'api/product.js';
 
   export default {
     name: 'demo',
     data() {
       return {
         activeIndex: '',
-        switchRadio:['','','','','',''],
+        switchRadio: ['', '', '', '', '', ''],
         num1: 1,
         activeName: 'first',
-        product:{
-          detail:[],
-          switch:{
-            image:''
+        product: {
+          detail: [],
+          switch: {
+            image: ''
           },
-          function:[],
-          packing:[]
+          function: [],
+          packing: []
         },
-        name:this.$route.params.name
+        name: this.$route.params.name
       };
     },
-    watch:{
+    watch: {
       "$route.params.name": "initial"
     },
     methods: {
-      initial(){
-        getProduct({name:this.$route.params.name}).then(res=>{
+      initial() {
+        getProduct({
+          name: this.$route.params.name
+        }).then(res => {
           res.data[0].detail = eval('(' + res.data[0].detail + ')')
-          res.data[0].function = eval('(' + res.data[0].function + ')');          
-          res.data[0].packing = eval('(' + res.data[0].packing + ')');          
-          res.data[0].switch = eval('(' + res.data[0].switch + ')');
-          Object.keys(res.data[0].switch).map((k,v) =>{
-            if(k != 'image'){
-              this.switchRadio[v] = res.data[0].switch[k][0];          
+          res.data[0].function = eval('(' + res.data[0].function+')');
+          res.data[0].packing = eval('(' + res.data[0].packing + ')');
+          res.data[0].switch = eval('(' + res.data[0].switch+')');
+          Object.keys(res.data[0].switch).map((k, v) => {
+            if (k != 'image') {
+              this.switchRadio[v] = res.data[0].switch[k][0];
             }
           })
           // console.log(product)
-          this.product = res.data[0];        
+          this.product = res.data[0];
           console.log(this.product);
           console.log(this.switchRadio);
         })
       },
-      radiochange(val){
+      radiochange(val) {
         console.log(val);
         // console.log(k);
         console.log(this.switchRadio);
@@ -159,8 +165,9 @@
         var h = date.getHours();
         var m = date.getMinutes();
         var s = date.getSeconds();
-        function objec(val){
-          if(val >=1 && val <=9){
+
+        function objec(val) {
+          if (val >= 1 && val <= 9) {
             val = "0" + val;
           }
           return val;
@@ -170,11 +177,11 @@
         h = objec(h);
         m = objec(m);
         s = objec(s);
-        var currentdate = year + seperator1 + month + seperator1 + strDate + ' ' + h +':' + m +':' + s ;
+        var currentdate = year + seperator1 + month + seperator1 + strDate + ' ' + h + ':' + m + ':' + s;
         return currentdate;
       },
       handleChange(value) {
-        if(value == this.product.stock){
+        if (value == this.product.stock) {
           this.$notify.error({
             title: "最大数量为库存量",
             duration: 1500
@@ -185,63 +192,61 @@
       handleClick(tab, event) {
         console.log(tab, event);
       },
-      addCart(){
-        if($.cookie('userName')){
-          let swi = this.switchRadio.filter(v =>{
-            return v!=''
+      addCart() {
+        if ($.cookie('userName')) {
+          let swi = this.switchRadio.filter(v => {
+            return v != ''
           })
           addCart({
-            user:$.cookie('userName'),
-            product:this.product.id,
-            num:this.num1,
-            time:this.getNowFormatDate(),
-            switch:JSON.stringify(swi)
+            user: $.cookie('userName'),
+            product: this.product.id,
+            num: this.num1,
+            time: this.getNowFormatDate(),
+            switch: JSON.stringify(swi)
           })
           location.reload();
-        }
-        else {
+        } else {
           this.$router.push('/login');
         }
       },
-      changeSwitch(val, v){
+      changeSwitch(val, v) {
         console.log(this.switchRadio);
       },
-      order(){
-        if($.cookie('userName')){
-          let swi = this.switchRadio.filter(v =>{
-            return v!=''
+      order() {
+        if ($.cookie('userName')) {
+          let swi = this.switchRadio.filter(v => {
+            return v != ''
           })
           let proData = [{
-            user:$.cookie('userName'),
-            product:this.product.id,
-            pName:this.product.name,
-            num:this.num1,
-            image:this.product.image,
-            sPrice:this.product.price,
-            stock:this.product.stock,
-            switch:swi,            
-            time:this.getNowFormatDate()
+            user: $.cookie('userName'),
+            product: this.product.id,
+            pName: this.product.name,
+            num: this.num1,
+            image: this.product.image,
+            sPrice: this.product.price,
+            stock: this.product.stock,
+            switch: swi,
+            time: this.getNowFormatDate()
           }]
-          sessionStorage.setItem("buy",JSON.stringify(proData));
+          sessionStorage.setItem("buy", JSON.stringify(proData));
           this.$router.push('/buy');
-        }
-        else {
+        } else {
           this.$router.push('/login');
-        } 
+        }
       }
     },
-    created(){
+    created() {
       // console.log(this.name);
       this.initial();
     },
     mounted() {
       // Show();
-      setTimeout(function(){
+      setTimeout(function () {
         $(function () {
           var obj = new mag('.show', '.bigshow', '.smallshow', '.mask', '.bigitem');
           obj.init();
         });
-      },300);
+      }, 300);
     }
   }
 

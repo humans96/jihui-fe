@@ -11,7 +11,7 @@
             <div class="isss">
               <el-card>
                 <div class="img-container">
-                  <img src="images/公子小白.jpg">              
+                  <img src="images/公子小白.jpg">
                 </div>
                 <p class="pro-name">公子小白</p>
                 <p class="price">￥1880</p>
@@ -27,32 +27,31 @@
       </el-tabs>
     </div>
   </div>
-  
-    
+
+
 </template>
-  
-  <script>
-    import Vue from 'vue';
-  
-    export default {
-      name: 'product',
-      data() {
-        return {
-          activeIndex: '',
-        };
-      },
-      methods: {
-        
-      },
-      mounted(){
-        
-      }
+
+<script>
+  import Vue from 'vue';
+
+  export default {
+    name: 'product',
+    data() {
+      return {
+        activeIndex: '',
+      };
+    },
+    methods: {
+
+    },
+    mounted() {
+
     }
-  
-  </script>
-  
-  <style lang="scss">
-    
-    
-  </style>
-  
+  }
+
+</script>
+
+<style lang="scss">
+
+
+</style>

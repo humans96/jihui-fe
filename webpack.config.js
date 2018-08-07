@@ -4,14 +4,13 @@ const ExtractTextPlugin = require('extract-text-webpack-plugin');
 const CopyWebpackPlugin = require('copy-webpack-plugin');
 
 module.exports = {
-  entry: [ 'babel-polyfill', 'whatwg-fetch', './src/index.js' ],
+  entry: ['babel-polyfill', 'whatwg-fetch', './src/index.js'],
   output: {
     path: path.resolve(__dirname, './dist'),
     filename: 'bundle.js?[hash]',
   },
   module: {
-    rules: [
-      {
+    rules: [{
         test: /\.html?$/,
         loader: 'raw-loader'
       },
@@ -68,11 +67,11 @@ module.exports = {
       'request$': path.join(__dirname, './src/api/request.js'),
       'vue$': 'vue/dist/vue.common.js'
     },
-    extensions: [ '.js', '.vue' ],
+    extensions: ['.js', '.vue'],
   },
   devServer: {
     host: '127.0.0.1',
-    publicPath:'http://localhost:9110',
+    publicPath: 'http://localhost:9110',
     port: 9110,
     historyApiFallback: true,
     noInfo: false,
@@ -81,7 +80,9 @@ module.exports = {
       '/images': 'http://localhost:9110/dist',
       '/fonts': 'http://localhost:9110/dist',
       '/JH-api': {
-        pathRewrite: {"^/JH-api" : ""},
+        pathRewrite: {
+          "^/JH-api": ""
+        },
         target: 'http://127.0.0.1:3010/JH-api/',
       }
     }
@@ -92,8 +93,7 @@ module.exports = {
   devtool: '#eval',
   plugins: [
     new ExtractTextPlugin('style.css?[hash]'),
-    new CopyWebpackPlugin([
-      {
+    new CopyWebpackPlugin([{
         from: path.join(__dirname, './src/assets/images'),
         to: './images'
       },

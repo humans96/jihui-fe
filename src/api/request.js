@@ -10,9 +10,9 @@ export const DELETE = 'DELETE';
 export const formatParams = data => {
   // remove keys point to undefined value
   const keys = Object.keys(data).filter(key => undefined !== data[key]);
-  if(keys.length) {
+  if (keys.length) {
     return '?' + keys.map(key => `${key}=${data[key]}`).join('&');
-  }else {
+  } else {
     return '';
   }
 };
@@ -22,14 +22,14 @@ const headers = {
 };
 
 export default (url, method = GET) => (data, ...appendToUrl) => {
-  if((method === GET || method === DELETE) && data) { // convert object to url parameters & append to extra urls
+  if ((method === GET || method === DELETE) && data) { // convert object to url parameters & append to extra urls
     appendToUrl.push(formatParams(data));
   }
-  if($.cookie('token')){
+  if ($.cookie('token')) {
     headers.token = $.cookie('token');
   }
 
-  if(window.token) {
+  if (window.token) {
     headers.token = window.token;
   }
   return new Promise(f => {
@@ -38,17 +38,19 @@ export default (url, method = GET) => (data, ...appendToUrl) => {
       body: (method === GET || method === DELETE) ? undefined : JSON.stringify(data),
       headers
     }).then(res => {
-      if(res.ok) {
+      if (res.ok) {
         return res.json();
-      }else {
+      } else {
         throw res;
       }
     }).then(res => {
       f(res);
     }).catch(res => {
-      const { status } = res;
-      if(status === 401) {
-        
+      const {
+        status
+      } = res;
+      if (status === 401) {
+
       }
     });
   });

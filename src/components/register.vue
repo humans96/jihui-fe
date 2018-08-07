@@ -54,17 +54,25 @@
                 <p>2.3 本服务的范围</p>
                 <p>2.3.1 本条及本协议其他条款未明示授权的其他一切权利仍由集慧科技保留，用户在行使这些权利时须另外取得集慧科技的书面许可。集慧科技如果未行使前述任何权利，并不构成对该权利的放弃。</p>
                 <p>2.3.2 如果用户停止使用本软件及服务或服务被终止或取消，本公司可以从服务器上永久地删除您的数据。服务停止、终止或取消后，本公司没有义务向用户返还任何数据。</p>
-                <p><strong>3. 软件的获取</strong></p>
+                <p>
+                  <strong>3. 软件的获取</strong>
+                </p>
                 <p>3.1 用户可以直接从集慧科技的网站上获取本软件，也可以从得到集慧科技授权的第三方获取。</p>
                 <p>3.2 如果用户从未经集慧科技授权的第三方获取本软件或与本软件名称相同的安装程序，集慧科技无法保证该软件能够正常使用，并对因此给用户造成的损失不予负责。</p>
-                <p><strong>4. 软件的安装与卸载</strong></p>
+                <p>
+                  <strong>4. 软件的安装与卸载</strong>
+                </p>
                 <p>4.1 集慧科技可能为不同的终端设备开发了不同的软件版本，用户应当根据实际情况选择下载合适的版本进行安装。</p>
                 <p>4.2 下载安装程序后，用户应按照该程序提示的步骤正确安装。</p>
-                <p><strong>5. 软件的更新</strong></p>
+                <p>
+                  <strong>5. 软件的更新</strong>
+                </p>
                 <p>5.1 为了改善用户体验、完善服务内容，集慧科技将不断努力开发新的服务，并为用户不时提供软件更新（这些更新可能会采取软件替换、修改、功能强化、版本升级等形式）。</p>
                 <p>5.2 为了保证本软件及服务的安全性和功能的一致性，集慧科技有权不经向用户特别通知而对软件进行更新，或者对软件的部分功能效果进行改变或限制。</p>
                 <p>5.3 本软件新版本发布后，本公司将可能视情况设定一定期限的过渡期，以方便用户下载最新版本。过渡期结束后，旧版本的软件可能无法使用。集慧科技不保证旧版本软件继续可用及相应的客户服务，请随时核对并下载最新版本。</p>
-                <p><strong>6. 隐私声明</strong></p>
+                <p>
+                  <strong>6. 隐私声明</strong>
+                </p>
                 <p>6.1 用户信息收集</p>
                 <p>6.1.1 用户在注册帐号或使用本服务的过程中，需要提供一些必要的信息，例如：真实姓名、地址、国籍、企业名称、行业、规模、职位、所在部门、电话号码和电子邮件地址等。上述信息视为您的身份识别信息，本公司用这些信息来管理您的账户，并为您提供一系列服务的访问。本公司也可能利用这些信息来通知您最新的产品更新和市场活动。您可随时以在本公司取得账户信息及密码登录本公司并查看账户设置和您的信息，并可查看和修改您的个人信息。</p>
                 <p>6.1.2 您只能通过您的密码来使用您的帐号。如果您泄漏了密码，您可能丢失了您的个人识别信息，并且可能出现对您不利的后果。因此，无论任何原因危及您的密码安全，您应该立即通过本公司预留的联系方式和本公司取得联系</p>
@@ -87,7 +95,9 @@
                 <p>6.5 用户对本软件分析结果的使用</p>
                 <p>6.5.1 用户在此无条件同意，用户在免费试用本公司提供的软件、插件或者其他工具期间，本条款中的隐私声明项下的信息及对该等信息的分析结果的所有权由本公司与用户共同拥有。当用户成为本公司的付费用户以后，用户将成为该等信息及对该等信息的分析结果唯一的所有权人。尽管有上述约定，免费试用用户如何使用本公司收集的信息、以及对该等信息的分析结果属于试用用户自己的权利，本公司对免费试用用户使用、处分该等信息及信息的分析结果不承担任何责任，但本公司建议，免费试用用户应当以符合相关法律规定和道德义务的方式使用该等信息及分析结果。同时，本公司提醒注意，因包括但不限于技术原因、网络传输质量等原因，导致本公司对本公司收集的信息的分析结果可能存在不准确的情况，对于该等不准确所导致的问题或者损失，本公司不承担任何责任。如果您接受本条款中的隐私声明并把本公司提供给您的软件、插件或者其他工具集成到您的网站或者应用中，您已经同意并向本公司保证您所有的最终用户同意本公司收集、使用并分析其信息，并且遵守本条款中的隐私声明的全部规定。</p>
                 <p>6.5.2 您在此进一步保证，您的用户不会因为本公司按照本声明的规定收集、使用、分析、披露收集的信息及对该等信息的分析结果而对本公司产生任何形式的诉求、投诉等。如果您的用户因本条款中的隐私声明项下的对其的信息的收集、使用、披露或者对该等信息的分析以及您对分析结果的使用和处分而致使本公司遭受任何形式的诉求以及投诉等，您将负责全面给予解决；如果导致本公司发生任何形式的损失，您将负责给予本公司赔偿。</p>
-                <p><strong>7. 用户行为规范</strong></p>
+                <p>
+                  <strong>7. 用户行为规范</strong>
+                </p>
                 <p>7.1 软件使用规范。除非法律允许或本公司书面许可，用户使用本软件过程中不得从事下列行为：</p>
                 <p>7.1.1 删除本软件及其副本上关于著作权的信息；</p>
                 <p>7.1.2 对本软件进行反向工程、反向汇编、反向编译，或者以其他方式尝试发现本软件的源代码；</p>
@@ -104,14 +114,20 @@
                 <p>7.3.1 如果本公司发现或收到他人举报或投诉用户违反本协议约定的，本公司有权视行为情节对违规用户处以包括但不限于警告、限制或禁止使用部分或全部功能、帐号封禁直至注销的处罚。</p>
                 <p>7.3.2 用户理解并同意，本公司有权依合理判断对违反有关法律法规或本协议规定的行为进行处罚，对违法违规的任何用户采取适当的法律行动，并依据法律法规保存有关信息向有关部门报告等，用户应独自承担由此而产生的一切法律责任。</p>
                 <p>7.3.3 用户理解并同意，因用户违反本协议或相关服务条款的规定，导致或产生第三方主张的任何索赔、要求或损失，用户应当独立承担责任；本公司因此遭受损失的，用户也应当一并赔偿。</p>
-                <p><strong>8. 知识产权声明</strong></p>
+                <p>
+                  <strong>8. 知识产权声明</strong>
+                </p>
                 <p>8.1 集慧科技是本软件的知识产权权利人。本软件的一切著作权、商标权、专利权、商业秘密等知识产权，均受中华人民共和国法律法规和相应的国际条约保护，本公司享有上述知识产权，但相关权利人依照法律规定和本条款应享有的权利除外。</p>
                 <p>8.2 未经本公司或相关权利人书面同意，用户不得为任何商业或非商业目的自行或许可任何第三方实施、利用、转让上述知识产权。</p>
-                <p><strong>9. 第三方软件或技术</strong></p>
+                <p>
+                  <strong>9. 第三方软件或技术</strong>
+                </p>
                 <p>9.1 本软件可能会使用第三方软件或技术（包括本软件可能使用的开源代码和公共领域代码等，下同），这种使用已经获得合法授权。</p>
                 <p>9.2 本软件如果使用了第三方的软件或技术，本公司将按照相关法规或约定，对相关的协议或其他文件，可能通过本协议附件、在本软件安装包特定文件夹中打包、或通过开源软件页面等形式进行展示，它们可能会以“软件使用许可协议”、“授权协议”、“开源代码许可证”或其他形式来表达。前述通过各种形式展现的相关协议、其他文件及网页，均是本协议不可分割的组成部分，与本协议具有同等的法律效力，用户应当遵守这些要求。如果用户没有遵守这些要求，该第三方或者国家机关可能会对用户提起诉讼、罚款或采取其他制裁措施，并要求本公司给予协助，用户对此应当自行承担法律责任。</p>
                 <p>9.3 如因本软件使用的第三方软件或技术引发的任何纠纷，应由该第三方负责解决，本公司不承担任何责任。本公司不对第三方软件或技术提供客服支持，若用户需要获取支持，请与第三方联系。</p>
-                <p><strong>10. 其他</strong></p>
+                <p>
+                  <strong>10. 其他</strong>
+                </p>
                 <p>10.1 用户使用本软件即视为您已阅读并同意受本协议的约束。本公司有权在必要时修改本协议条款。用户可以在本软件的最新版本中查阅相关协议条款。本协议条款变更后，如果用户继续使用本软件，即视为用户已接受修改后的协议。如果用户不接受修改后的协议，应当停止使用本软件。</p>
                 <p>10.2 本协议签订地为中华人民共和国上海市。</p>
                 <p>10.3 本协议的成立、生效、履行、解释及纠纷解决，适用中华人民共和国大陆地区法律（不包括冲突法）。</p>
@@ -129,10 +145,13 @@
               </div> -->
             </div>
 
-            <h1><el-button type="primary" @click="agree()">同意协议</el-button> <el-button onclick="javascript:window.location='#/login'">返回</el-button></h1>
+            <h1>
+              <el-button type="primary" @click="agree()">同意协议</el-button>
+              <el-button onclick="javascript:window.location='#/login'">返回</el-button>
+            </h1>
           </div>
         </div>
-        
+
         <div v-show="step == 1" style="margin: 40px auto;width:80%;max-width:550px">
           <el-form :model="register" status-icon :rules="rules" ref="register" label-width="100px" class="demo-ruleForm">
             <el-form-item label="用户名" prop="name" :required="true">
@@ -145,8 +164,8 @@
               <el-input type="password" v-model="register.checkpassword" auto-complete="off"></el-input>
             </el-form-item>
             <el-form-item label="手机" prop="phone" :required="true">
-                <el-input v-model.number="register.phone"></el-input>
-              </el-form-item>
+              <el-input v-model.number="register.phone"></el-input>
+            </el-form-item>
             <el-form-item label="邮箱" prop="email">
               <el-input v-model.number="register.email"></el-input>
             </el-form-item>
@@ -162,14 +181,17 @@
         </div>
       </el-col>
     </el-row>
-      
+
 
   </div>
 </template>
-      
+
 <script>
   import Vue from 'vue';
-  import { register, check } from 'api/user.js';
+  import {
+    register,
+    check
+  } from 'api/user.js';
 
   export default {
     name: 'register',
@@ -178,16 +200,15 @@
         if (!value) {
           return callback(new Error('用户名不能为空'));
         }
-        if(value.length<2 || value.length>30){
+        if (value.length < 2 || value.length > 30) {
           return callback(new Error('用户名长度必须在2~30之间'));
         }
         check({
           name: value
-        }).then(res =>{
-          if(res.data){
-            return callback(new Error('用户名已存在'));            
-          }
-          else {
+        }).then(res => {
+          if (res.data) {
+            return callback(new Error('用户名已存在'));
+          } else {
             callback();
           }
         })
@@ -196,7 +217,7 @@
         if (value === '') {
           callback(new Error('请输入密码'));
         } else {
-          if(value.length<8 || value.length>30){
+          if (value.length < 8 || value.length > 30) {
             callback(new Error('密码长度必须在8~30之间'));
           }
           if (this.register.checkpassword !== '') {
@@ -218,41 +239,39 @@
         if (!value) {
           return callback(new Error('手机号不能为空'));
         }
-        var myreg=/^[1][3,4,5,7,8][0-9]{9}$/;  
-        if (!myreg.test(value)) {  
+        var myreg = /^[1][3,4,5,7,8][0-9]{9}$/;
+        if (!myreg.test(value)) {
           return callback(new Error('手机号码格式错误'));
           this.$confirm('手机号码格式错误，请重新填写！', '提示', {
             confirmButtonText: '确定',
             type: 'warning'
           })
-        } else { 
+        } else {
           check({
-            phone:value
-          }).then(res =>{
-            if(res.data){
-              return callback(new Error('此手机已被注册过'));  
-            }
-            else{
+            phone: value
+          }).then(res => {
+            if (res.data) {
+              return callback(new Error('此手机已被注册过'));
+            } else {
               callback();
             }
-          }) 
-        }  
+          })
+        }
       };
-      let validateEmail = (rule, value, callback) =>{
+      let validateEmail = (rule, value, callback) => {
         var reg = new RegExp("^[a-z0-9]+([._\\-]*[a-z0-9])*@([a-z0-9]+[-a-z0-9]*[a-z0-9]+.){1,63}[a-z0-9]+$"); //正则表达式
-        if(value == ''){
+        if (value == '') {
           return callback();
         }
-        if(!reg.test(value)){
+        if (!reg.test(value)) {
           return callback(new Error('邮箱格式错误，请重新填写'));
         }
         check({
-          email:value
-        }).then(res =>{
-          if(res.data){
-            return callback(new Error('此邮箱已被注册过'));  
-          }
-          else{
+          email: value
+        }).then(res => {
+          if (res.data) {
+            return callback(new Error('此邮箱已被注册过'));
+          } else {
             callback();
           }
         })
@@ -262,31 +281,36 @@
           password: '',
           checkpassword: '',
           name: '',
-          email:'',
-          phone:''
+          email: '',
+          phone: ''
         },
         rules: {
-          password: [
-            { validator: validatepassword, trigger: 'blur' }
-          ],
-          checkpassword: [
-            { validator: validatepassword2, trigger: 'blur' }
-          ],
-          name: [
-            { validator: checkName, trigger: 'blur' }
-          ],
-          email:[
-            { validator: validateEmail, trigger: 'blur' }
-          ],
-          phone:[
-            { validator: validatePhone, trigger: 'blur' }
-          ]
+          password: [{
+            validator: validatepassword,
+            trigger: 'blur'
+          }],
+          checkpassword: [{
+            validator: validatepassword2,
+            trigger: 'blur'
+          }],
+          name: [{
+            validator: checkName,
+            trigger: 'blur'
+          }],
+          email: [{
+            validator: validateEmail,
+            trigger: 'blur'
+          }],
+          phone: [{
+            validator: validatePhone,
+            trigger: 'blur'
+          }]
         },
         step: 0
       };
     },
     methods: {
-      agree(){
+      agree() {
         this.step++;
       },
       submitForm(formName) {
@@ -294,10 +318,9 @@
           if (valid) {
             delete this.register.checkpassword;
             register(this.register).then(res => {
-              if(res.status == 200){
+              if (res.status == 200) {
                 this.step = 2;
-              }
-              else {
+              } else {
                 this.$notify.error({
                   title: '发生错误',
                   duration: 1500
@@ -319,8 +342,6 @@
 </script>
 
 <style lang="scss">
-  
-  
+
+
 </style>
-      
-      

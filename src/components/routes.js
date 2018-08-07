@@ -16,32 +16,57 @@ import Buy from 'components/buy.vue';
 import Order from 'components/order.vue';
 Vue.use(VueRouter);
 
-const routes =  [
-  {
+const routes = [{
     path: '/',
     components: {
       container: Container,
     },
-    children: [
-      { path: '/', component: Home },
-      { path: '/rift', component: Rift },
-      { path: '/support', component: Support },
-      { path: '/about', component: About },
-      { path: '/ucenter', component: Ucenter},
-      { path: '/product/:name', component: Demo },
-      { path: '/cart', component: Cart },
-      { path: '/buy', component: Buy },
-      { path: '/order/:id', component: Order }
+    children: [{
+        path: '/',
+        component: Home
+      },
+      {
+        path: '/rift',
+        component: Rift
+      },
+      {
+        path: '/support',
+        component: Support
+      },
+      {
+        path: '/about',
+        component: About
+      },
+      {
+        path: '/ucenter',
+        component: Ucenter
+      },
+      {
+        path: '/product/:name',
+        component: Demo
+      },
+      {
+        path: '/cart',
+        component: Cart
+      },
+      {
+        path: '/buy',
+        component: Buy
+      },
+      {
+        path: '/order/:id',
+        component: Order
+      }
     ]
   },
   {
-    path:'/login',
+    path: '/login',
     components: {
       container: Login
     }
   },
   {
-    path:'/register',
+    path: '/register',
     components: {
       container: Register
     }
@@ -51,11 +76,14 @@ const routes =  [
 export default new VueRouter({
   // mode: 'history',
   routes,
-  scrollBehavior (to, from, savedPosition) {
+  scrollBehavior(to, from, savedPosition) {
     if (savedPosition) {
       return savedPosition;
     } else {
-      return { x: 0, y: 0 };
+      return {
+        x: 0,
+        y: 0
+      };
     }
   }
 });

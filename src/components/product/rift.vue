@@ -6,8 +6,12 @@
       </div>
       <div class="des-box animate-box animate-one">
         <p class="des-title">oculus rift</p>
-        <p>畅享 VR，仅需 <span class="price">￥2799</span></p>
-        <p><el-button type="primary" round @click="addcar">加入购物车</el-button></p>
+        <p>畅享 VR，仅需
+          <span class="price">￥2799</span>
+        </p>
+        <p>
+          <el-button type="primary" round @click="addcar">加入购物车</el-button>
+        </p>
       </div>
     </div>
 
@@ -21,7 +25,9 @@
         </div>
         <div class="right-des des">
           <p>独一无二的 Oculus Rift</p>
-          <p><img src="images/rift-show2.png"></p>
+          <p>
+            <img src="images/rift-show2.png">
+          </p>
         </div>
       </div>
     </div>
@@ -65,19 +71,19 @@
       </div>
 
       <div class="intro-item item3">
-          <div class="img-box">
-            <img class="animate-fadeInUp" src="images/produce4.jpg">
+        <div class="img-box">
+          <img class="animate-fadeInUp" src="images/produce4.jpg">
+        </div>
+        <div class="tip animate-fadeInUp animate-delay">
+          <div class="tip-icon">
+            <img src="images/produce-icon3.png">
           </div>
-          <div class="tip animate-fadeInUp animate-delay">
-            <div class="tip-icon">
-              <img src="images/produce-icon3.png">
-            </div>
-            <div class="des-box">
-              <p class="title">卓越音效</p>
-              <p class="content">所听和所见一样重要。Rift 的集成式 360° 环绕立体声音效让虚拟现实的沉浸式体验上升到新的高度。</p>
-            </div>
+          <div class="des-box">
+            <p class="title">卓越音效</p>
+            <p class="content">所听和所见一样重要。Rift 的集成式 360° 环绕立体声音效让虚拟现实的沉浸式体验上升到新的高度。</p>
           </div>
         </div>
+      </div>
     </div>
 
     <div class="move">
@@ -93,7 +99,9 @@
       <div class="des-box animate-box">
         <p class="name">Oculus 体验</p>
         <p class="price">无穷 VR 世界等你体验</p>
-        <p><button @click="addcar">立即探索</button></p>
+        <p>
+          <button @click="addcar">立即探索</button>
+        </p>
       </div>
     </div>
 
@@ -103,7 +111,7 @@
         <p class="title">电脑推荐配置</p>
         <p class="content">电脑是 Rift 的引擎。为确保各类游戏和体验的出色表现，我们推荐使用以下规格的硬件。</p>
       </div>
-      
+
       <div class="img-box">
         <img class="animate-box" src="images/demand.png">
       </div>
@@ -131,27 +139,33 @@
       <div class="des-box animate-box">
         <p class="name">Oculus Rift</p>
         <p class="price">￥2799</p>
-        <p><el-button type="primary" round @click="addcar">加入购物车</el-button></p>
+        <p>
+          <el-button type="primary" round @click="addcar">加入购物车</el-button>
+        </p>
       </div>
     </div>
 
   </div>
-  
+
 </template>
-    
+
 <script>
   import Vue from 'vue';
   import $ from 'jQuery';
   import Init from 'components/default/init';
-  import {getProduct, addCart, placeOrder} from 'api/product.js';
+  import {
+    getProduct,
+    addCart,
+    placeOrder
+  } from 'api/product.js';
 
   export default {
     name: 'rift',
     data() {
       return {
-        form:{
-          account:'',
-          password:''
+        form: {
+          account: '',
+          password: ''
         }
       };
     },
@@ -165,8 +179,9 @@
         var h = date.getHours();
         var m = date.getMinutes();
         var s = date.getSeconds();
-        function objec(val){
-          if(val >=1 && val <=9){
+
+        function objec(val) {
+          if (val >= 1 && val <= 9) {
             val = "0" + val;
           }
           return val;
@@ -176,41 +191,38 @@
         h = objec(h);
         m = objec(m);
         s = objec(s);
-        var currentdate = year + seperator1 + month + seperator1 + strDate + ' ' + h +':' + m +':' + s ;
+        var currentdate = year + seperator1 + month + seperator1 + strDate + ' ' + h + ':' + m + ':' + s;
         return currentdate;
       },
-      addcar(){
-        if($.cookie('userName')){
+      addcar() {
+        if ($.cookie('userName')) {
           addCart({
-            user:$.cookie('userName'),
-            product:8,
-            num:1,
-            time:this.getNowFormatDate(),
-            switch:[]
+            user: $.cookie('userName'),
+            product: 8,
+            num: 1,
+            time: this.getNowFormatDate(),
+            switch: []
           })
           location.reload();
-        }
-        else {
+        } else {
           this.$router.push('/login');
         }
       }
     },
-    mounted(){
-      
+    mounted() {
+
       Init();
       let n = 1;
-      setInterval(function(){
-        n == 6? n = 1:n++;
-        $("#show").attr('src','images/rift-show' + n + '.jpg');
-      },1500);
+      setInterval(function () {
+        n == 6 ? n = 1 : n++;
+        $("#show").attr('src', 'images/rift-show' + n + '.jpg');
+      }, 1500);
     }
   }
 
 </script>
 
 <style lang="scss">
-  
-  
+
+
 </style>
-      
-      

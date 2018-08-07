@@ -1,4 +1,4 @@
-(function() {
+(function () {
   'use strict'
 
   var $ = window.jQuery
@@ -14,12 +14,12 @@
   }
 
   /* Private */
-  Sticky.prototype.createWaypoint = function() {
+  Sticky.prototype.createWaypoint = function () {
     var originalHandler = this.options.handler
 
     this.waypoint = new Waypoint($.extend({}, this.options, {
       element: this.wrapper,
-      handler: $.proxy(function(direction) {
+      handler: $.proxy(function (direction) {
         var shouldBeStuck = this.options.direction.indexOf(direction) > -1
         var wrapperHeight = shouldBeStuck ? this.$element.outerHeight(true) : ''
 
@@ -34,7 +34,7 @@
   }
 
   /* Private */
-  Sticky.prototype.createWrapper = function() {
+  Sticky.prototype.createWrapper = function () {
     if (this.options.wrapper) {
       this.$element.wrap(this.options.wrapper)
     }
@@ -43,7 +43,7 @@
   }
 
   /* Public */
-  Sticky.prototype.destroy = function() {
+  Sticky.prototype.destroy = function () {
     if (this.$element.parent()[0] === this.wrapper) {
       this.waypoint.destroy()
       this.$element.removeClass(this.options.stuckClass)

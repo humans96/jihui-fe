@@ -3,7 +3,7 @@
     <div class="login-container">
       <div class="logo">
         <a href="#/">
-          <img src="images/logo.png">          
+          <img src="images/logo.png">
         </a>
       </div>
       <div class="login-box-warp">
@@ -91,11 +91,15 @@
                 this.createCode(); //刷新验证码  
                 document.getElementById("input").value = ""; //清空文本框  
               } else {
-                $.cookie('token' , res.uuid, { expires: .2 });
-                $.cookie('userName' , res.message.name, { expires: .2 });
+                $.cookie('token', res.uuid, {
+                  expires: .2
+                });
+                $.cookie('userName', res.message.name, {
+                  expires: .2
+                });
                 this.$router.push('/');
               }
-            });  
+            });
           }
         }
       },
@@ -103,7 +107,7 @@
         this.code = "";
         var codeLength = 4; //验证码的长度  
         var checkCode = document.getElementById("code");
-        var random = new Array( 1, 2, 3, 4, 5, 6, 7, 8, 9, 'A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J', 'K', 'L',
+        var random = new Array(1, 2, 3, 4, 5, 6, 7, 8, 9, 'A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J', 'K', 'L',
           'M', 'N', 'P', 'Q', 'R',
           'S', 'T', 'U', 'V', 'W', 'X', 'Y', 'Z'); //随机数  
         for (var i = 0; i < codeLength; i++) { //循环操作  
@@ -122,7 +126,7 @@
       }
     },
     mounted() {
-      this.createCode();      
+      this.createCode();
     }
   }
 
