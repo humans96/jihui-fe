@@ -403,9 +403,6 @@
           <el-form-item label="邮箱地址" :label-width="formLabelWidth">
             <el-input v-model="dialogForm.email.value" auto-complete="off"></el-input>
           </el-form-item>
-          <el-form-item label="验证码" :label-width="formLabelWidth">
-            <el-input v-model="dialogForm.email.valid" auto-complete="off"></el-input>
-          </el-form-item>
         </el-form>
         <div slot="footer" class="dialog-footer">
           <el-button @click="isdialog.emailDialog = false">取 消</el-button>
@@ -509,8 +506,7 @@
             renew:''
           },
           email:{
-            value:'',
-            valid:''
+            value:''
           },
           phone:{
             num:'',
